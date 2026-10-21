@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071a36">
+  <meta name="description" content="Website informasi dan profil SMKN 8 Kota Bekasi.">
+  <title>SMKN 8 Kota Bekasi | Website Sekolah</title>
+
+  <style>
+    :root {
+      --navy: #071a36;
+      --blue: #1264e8;
+      --cyan: #42d9ff;
+      --light: #f3f7fc;
+      --text: #17243a;
+      --muted: #637087;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      background: rgba(7, 26, 54, .97);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px #071a3620;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .brand-logo {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--cyan);
+      border-radius: 12px;
+      color: var(--cyan);
+      font-weight: 900;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 10px;
+      color: #b9c9e4;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 13px;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid #ffffff55;
+      border-radius: 8px;
+      background: transparent;
+      color: white;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .hero {
+      color: white;
+      background:
+        radial-gradient(ellipse at 85% 20%, #147de955, transparent 35%),
+        linear-gradient(135deg, #071a36, #0b3267 65%, #075b91);
+      padding: 100px 0 95px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      border: 1px solid #42d9ff66;
+      background: #42d9ff12;
+      color: var(--cyan);
+      border-radius: 50px;
+      padding: 7px 15px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 630px;
+      color: #d4e2f6;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 10px;
+      padding: 12px 21px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--navy);
+    }
+
+    .btn-outline {
+      border: 1px solid #ffffff77;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 55px;
+      max-width: 700px;
+    }
+
+    .stat {
+      border-left: 3px solid var(--cyan);
+      padding: 5px 15px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .stat span {
+      font-size: 12px;
+      color: #bdcde4;
+    }
+
+    section {
+      padding: 80px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 35px;
+    }
+
+    .section-heading .tag {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(27px, 4vw, 38px);
+      line-height: 1.25;
+      margin: 9px 0 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: stretch;
+    }
+
+    .about-panel {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid #e1e9f4;
+      box-shadow: 0 12px 35px #0c2c5610;
+    }
+
+    .about-panel h3 {
+      color: var(--navy);
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .about-panel p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .vision-item {
+      display: flex;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .check {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: #e5f4ff;
+      color: var(--blue);
+      font-weight: bold;
+    }
+
+    .vision-item h4 {
+      margin-bottom: 3px;
+    }
+
+    .vision-item p {
+      font-size: 13px;
+    }
+
+    .programs {
+      background: #eaf1fa;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e0e9f5;
+      border-radius: 17px;
+      padding: 27px;
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #0c2c5615;
+    }
+
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #e8f3ff;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      color: var(--navy);
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .news-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .news-top {
+      background: linear-gradient(135deg, #0c3770, #1476cf);
+      color: white;
+      min-height: 135px;
+      padding: 25px;
+      display: flex;
+      align-items: end;
+      font-weight: 800;
+      font-size: 19px;
+    }
+
+    .news-body {
+      padding: 23px;
+    }
+
+    .news-body h3 {
+      font-size: 16px;
+    }
+
+    .news-body p {
+      margin-top: 8px;
+    }
+
+    .news-label {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .contact {
+      color: white;
+      background: var(--navy);
+    }
+
+    .contact .section-heading h2 {
+      color: white;
+    }
+
+    .contact .section-heading p {
+      color: #c1cfe3;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .contact-info {
+      background: #ffffff0a;
+      border: 1px solid #ffffff20;
+      border-radius: 17px;
+      padding: 28px;
+    }
+
+    .contact-info h3 {
+      margin-bottom: 18px;
+    }
+
+    .contact-info p {
+      color: #c1cfe3;
+      margin: 12px 0;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-info a {
+      color: var(--cyan);
+    }
+
+    .contact-note {
+      background: #ffffff0a;
+      border: 1px solid #ffffff20;
+      padding: 25px;
+      border-radius: 17px;
+      color: #c1cfe3;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 24px 0;
+      background: #041126;
+      color: #a9bad3;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 17px;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a href="#beranda" class="brand">
+        <div class="brand-logo">8</div>
+        <div>
+          SMKN 8 KOTA BEKASI
+          <small>WEBSITE SEKOLAH</small>
+        </div>
+      </a>
+
+      <button class="menu-btn" id="menuBtn"
+        aria-label="Buka menu" aria-expanded="false">
+        ☰ Menu
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#beranda">Beranda</a>
+        <a href="#profil">Profil</a>
+        <a href="#jurusan">Jurusan</a>
+        <a href="#berita">Informasi</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">PENDIDIKAN • KETERAMPILAN • MASA DEPAN</span>
+          <h1>Membangun Generasi <span>Unggul</span> untuk Masa Depan.</h1>
+          <p>
+            Selamat datang di website SMKN 8 Kota Bekasi.
+            Temukan informasi sekolah, program keahlian,
+            kegiatan, dan berbagai informasi pendidikan di sini.
+          </p>
+          <div class="buttons">
+            <a href="#profil" class="btn btn-primary">Jelajahi Sekolah →</a>
+            <a href="#jurusan" class="btn btn-outline">Lihat Program Keahlian</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>Belajar</strong>
+              <span>Mengembangkan potensi diri</span>
+            </div>
+            <div class="stat">
+              <strong>Terampil</strong>
+              <span>Mempersiapkan kemampuan kerja</span>
+            </div>
+            <div class="stat">
+              <strong>Berprestasi</strong>
+              <span>Meraih masa depan yang lebih baik</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profil">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">Profil Sekolah</span>
+          <h2>Mengenal SMKN 8 Kota Bekasi</h2>
+          <p>
+            Halaman informasi sekolah untuk mengenal lingkungan
+            pendidikan, tujuan, dan nilai-nilai yang dikembangkan.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-panel">
+            <h3>Tentang Sekolah</h3>
+            <p>
+              SMKN 8 Kota Bekasi merupakan nama sekolah yang
+              ditampilkan pada website ini. Informasi resmi mengenai
+              sejarah, alamat, fasilitas, dan program sekolah dapat
+              ditambahkan setelah datanya dikonfirmasi.
+            </p>
+          </div>
+
+          <div class="about-panel">
+            <h3>Visi dan Misi</h3>
+            <div class="vision-item">
+              <div class="check">✓</div>
+              <div>
+                <h4>Visi</h4>
+                <p>
+                  Menjadi lingkungan pendidikan yang mendukung
+                  peserta didik untuk berkembang, terampil,
+                  dan siap menghadapi masa depan.
+                </p>
+              </div>
+            </div>
+            <div class="vision-item">
+              <div class="check">✓</div>
+              <div>
+                <h4>Misi</h4>
+                <p>
+                  Mendorong pembelajaran berkualitas, karakter
+                  yang baik, kreativitas, dan keterampilan sesuai
+                  kebutuhan dunia kerja.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="programs" id="jurusan">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">Program Keahlian</span>
+          <h2>Belajar, Berkarya, dan Berkembang</h2>
+          <p>
+            Kenali bidang keahlian yang ingin kamu pelajari.
+            Daftar berikut merupakan contoh dan perlu disesuaikan
+            dengan jurusan resmi yang tersedia di sekolah.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-icon">💻</div>
+            <h3>Teknik Komputer dan Jaringan</h3>
+            <p>
+              Mengenal komputer, jaringan internet, perangkat
+              jaringan, serta dasar pengelolaan sistem komputer.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⚙️</div>
+            <h3>Teknologi dan Rekayasa</h3>
+            <p>
+              Mengembangkan keterampilan teknis dan kemampuan
+              pemecahan masalah melalui praktik pembelajaran.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🚀</div>
+            <h3>Inovasi dan Teknologi</h3>
+            <p>
+              Mengenal perkembangan teknologi, kreativitas,
+              dan pemanfaatan teknologi untuk menghasilkan karya.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="berita">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">Informasi Sekolah</span>
+          <h2>Berita dan Kegiatan</h2>
+          <p>
+            Ruang untuk membagikan informasi, kegiatan,
+            pengumuman, dan prestasi warga sekolah.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card news-card">
+            <div class="news-top">Kegiatan Sekolah</div>
+            <div class="news-body">
+              <span class="news-label">KEGIATAN</span>
+              <h3>Dokumentasi Aktivitas Sekolah</h3>
+              <p>
+                Tambahkan cerita, foto, dan tanggal kegiatan
+                sekolah yang telah berlangsung.
+              </p>
+            </div>
+          </article>
+
+          <article class="card news-card">
+            <div class="news-top">Pengumuman</div>
+            <div class="news-body">
+              <span class="news-label">INFORMASI</span>
+              <h3>Informasi untuk Siswa</h3>
+              <p>
+                Gunakan bagian ini untuk menyampaikan
+                pengumuman resmi dan jadwal kegiatan.
+              </p>
+            </div>
+          </article>
+
+          <article class="card news-card">
+            <div class="news-top">Prestasi Siswa</div>
+            <div class="news-body">
+              <span class="news-label">PRESTASI</span>
+              <h3>Karya dan Pencapaian</h3>
+              <p>
+                Tampilkan pencapaian siswa dan prestasi sekolah
+                berdasarkan informasi yang telah diverifikasi.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontak">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">Hubungi Kami</span>
+          <h2>Informasi dan Kontak Sekolah</h2>
+          <p>
+            Gunakan informasi kontak resmi sekolah untuk
+            mendapatkan informasi lebih lanjut.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Kontak Sekolah</h3>
+            <p><strong>Nama:</strong> SMKN 8 Kota Bekasi</p>
+            <p><strong>Alamat:</strong> Tambahkan alamat resmi sekolah</p>
+            <p><strong>Email:</strong> Tambahkan email resmi sekolah</p>
+            <p><strong>Telepon:</strong> Tambahkan nomor resmi sekolah</p>
+          </div>
+
+          <div class="contact-note">
+            <h3 style="color:white; margin-bottom:12px;">
+              Ada pertanyaan?
+            </h3>
+            <p>
+              Untuk pertanyaan tentang pendaftaran, program
+              keahlian, atau informasi sekolah, hubungi pihak
+              sekolah melalui saluran resmi yang telah
+              dikonfirmasi.
+            </p>
+            <p style="margin-top:15px;">
+              Catatan: lengkapi bagian ini dengan informasi
+              kontak yang benar sebelum website dipublikasikan
+              sebagai website resmi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> SMKN 8 Kota Bekasi.
+      Website informasi sekolah.
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", isOpen);
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
