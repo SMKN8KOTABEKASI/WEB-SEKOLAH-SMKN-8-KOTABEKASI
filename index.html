@@ -2,654 +2,610 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SMK Negeri 8 Kota Bekasi</title>
 
 <style>
 :root {
-  --navy: #071b3a;
-  --blue: #123d70;
-  --gold: #f2bd39;
-  --light: #f4f7fb;
-  --ink: #172235;
-  --muted: #627086;
+  --navy: #0a2040;
+  --blue: #174a7c;
+  --gold: #e8b943;
+  --bg: #f4f7fb;
+  --text: #1d2939;
+  --muted: #667085;
+  --white: #fff;
+  --border: #e1e7ef;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--ink);
-  background: #fff;
+  color: var(--text);
+  background: var(--bg);
   line-height: 1.6;
 }
 
 button, input, textarea, select { font: inherit; }
 button, a { cursor: pointer; }
-a { color: inherit; text-decoration: none; }
+a { text-decoration: none; color: inherit; }
 
-.topbar {
+.hidden { display: none !important; }
+
+.top {
   background: var(--navy);
   color: white;
-  padding: 9px 5%;
-  font-size: 13px;
+  padding: 8px 5%;
+  font-size: 12px;
 }
 
-.header {
+header {
   background: white;
   position: sticky;
   top: 0;
   z-index: 10;
-  box-shadow: 0 3px 16px #061a3320;
+  box-shadow: 0 3px 15px #00000010;
 }
 
-.headinner {
+.head {
   max-width: 1150px;
   margin: auto;
   padding: 13px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
+  gap: 12px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-weight: 800;
+  gap: 11px;
   color: var(--navy);
-  font-size: 17px;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1.3;
 }
 
-.crest {
-  width: 47px;
-  height: 47px;
+.logo {
+  width: 45px;
+  height: 45px;
+  border: 2px solid var(--gold);
   border-radius: 50%;
-  display: grid;
-  place-items: center;
   background: var(--navy);
   color: var(--gold);
-  border: 2px solid var(--gold);
-  font-size: 13px;
+  display: grid;
+  place-items: center;
   text-align: center;
-  line-height: 1.2;
+  font-size: 12px;
 }
 
 .menu-btn {
   border: 0;
   background: var(--navy);
   color: white;
-  border-radius: 9px;
-  padding: 10px 13px;
-  font-size: 22px;
+  padding: 8px 13px;
+  font-size: 23px;
+  border-radius: 8px;
 }
 
 .drawer {
   display: none;
   background: white;
-  border-top: 1px solid #e3e8ef;
   max-height: 75vh;
-  overflow: auto;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
 }
 
 .drawer.open { display: block; }
 
-.drawer a, .group-title {
+.drawer a, .menu-title {
   display: block;
-  padding: 13px 22px;
-  border-bottom: 1px solid #e6e9ef;
-  font-weight: 700;
+  padding: 12px 22px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
 }
 
-.drawer a.sub {
-  padding-left: 42px;
-  font-weight: 400;
-}
+.drawer a.sub { padding-left: 42px; font-weight: 400; }
 
-.group-title {
-  background: #f7f9fc;
+.menu-title {
+  background: var(--bg);
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
-  cursor: pointer;
 }
 
 .submenu { display: none; }
 .submenu.open { display: block; }
 
 .hero {
-  background: linear-gradient(120deg, #071b3a, #154a7d);
+  background: linear-gradient(120deg, #091b36, #174a7c);
   color: white;
-  padding: 75px 20px;
+  padding: 75px 22px;
 }
 
-.hero-inner {
-  max-width: 1100px;
+.wrap {
+  width: min(1080px, 100%);
   margin: auto;
 }
 
 .eyebrow {
   color: var(--gold);
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: bold;
   letter-spacing: 2px;
-  font-size: 13px;
 }
 
 .hero h1 {
-  font-size: clamp(32px, 5vw, 54px);
-  line-height: 1.12;
   max-width: 750px;
-  margin: 14px 0;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+  margin: 15px 0;
 }
 
 .hero p {
-  max-width: 680px;
-  color: #e0e9f5;
-  font-size: 17px;
+  max-width: 650px;
+  color: #e1eaf5;
 }
 
 .btn {
   display: inline-block;
-  background: var(--gold);
-  color: var(--navy);
-  padding: 11px 17px;
+  padding: 11px 16px;
   border: 0;
   border-radius: 7px;
-  font-weight: 800;
-  margin-top: 10px;
-}
-
-.section { padding: 54px 20px; }
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-}
-
-.section:nth-of-type(even) { background: var(--light); }
-
-.section-title {
-  margin: 0 0 8px;
+  background: var(--gold);
   color: var(--navy);
-  font-size: clamp(25px, 3vw, 34px);
+  font-weight: bold;
+  margin-top: 8px;
 }
 
-.lead {
-  margin: 0 0 25px;
-  color: var(--muted);
+.btn-blue {
+  background: var(--navy);
+  color: white;
 }
 
-.cards {
+.btn-red {
+  background: #b42332;
+  color: white;
+}
+
+.section { padding: 42px 20px; }
+
+.section h2, .page h1 {
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+.section h2 { font-size: 27px; margin: 0 0 8px; }
+
+.muted { color: var(--muted); }
+
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 17px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
 }
 
 .card {
   background: white;
-  border: 1px solid #e3e8ef;
-  border-radius: 13px;
-  padding: 21px;
-  box-shadow: 0 6px 20px #09244808;
-}
-
-.card h3 {
-  margin: 0 0 8px;
-  color: var(--navy);
-}
-
-.empty {
-  border: 1px dashed #aab6c7;
-  background: #fbfcfe;
-  color: #6d7a8c;
-  border-radius: 10px;
-  padding: 22px;
-  text-align: center;
-}
-
-.vision {
-  background: white;
-  border-left: 4px solid var(--gold);
+  border: 1px solid var(--border);
+  border-radius: 12px;
   padding: 20px;
-  border-radius: 8px;
-  margin: 14px 0;
 }
 
-.vision ol { padding-left: 22px; }
-
-.program-card {
-  display: grid;
-  grid-template-columns: minmax(140px, .85fr) 1.15fr;
-  gap: 20px;
-  align-items: center;
-  background: white;
-  border: 1px solid #dfe6ef;
-  border-radius: 14px;
-  padding: 16px;
-  margin: 18px 0;
-  box-shadow: 0 7px 20px #0a25420a;
-}
-
-.photo-placeholder {
-  min-height: 190px;
-  border: 2px dashed #a9b6c7;
-  background: #f6f8fb;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #718096;
-  padding: 15px;
-}
-
-.photo-placeholder span {
-  display: block;
-  font-size: 35px;
-  margin-bottom: 5px;
-}
-
-.program-card h3 {
-  color: var(--navy);
-  margin: 0 0 6px;
-}
-
-.tag {
-  display: inline-block;
-  background: #eaf1fa;
-  color: #174575;
-  padding: 4px 9px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.admin-box {
-  max-width: 620px;
-  margin: auto;
-  background: white;
-  padding: 24px;
-  border: 1px solid #e1e7ef;
-  border-radius: 13px;
-}
-
-.field { margin: 12px 0; }
-
-.field label {
-  display: block;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.field input, .field textarea, .field select {
-  width: 100%;
-  padding: 11px;
-  border: 1px solid #ccd5e1;
-  border-radius: 7px;
-}
-
-.field textarea { min-height: 100px; }
-
-.btn-dark {
-  background: var(--navy);
-  color: white;
-  border: 0;
-  border-radius: 7px;
-  padding: 10px 14px;
-}
-
-.btn-red {
-  background: #a72b35;
-  color: white;
-  border: 0;
-  border-radius: 7px;
-  padding: 8px 12px;
-}
-
-.hidden { display: none !important; }
+.card h3 { color: var(--navy); margin-top: 0; }
 
 .notice {
-  font-size: 13px;
-  color: #66758a;
-  background: #f4f7fb;
-  padding: 12px;
-  border-radius: 7px;
+  background: white;
+  border: 1px dashed #aebccc;
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--muted);
 }
 
-.admin-list { margin-top: 20px; }
+.page {
+  min-height: 65vh;
+  padding: 35px 20px 60px;
+}
 
-.admin-item {
-  border: 1px solid #e0e6ee;
+.page-head {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 22px 20px;
+}
+
+.back {
+  color: var(--blue);
+  font-weight: bold;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.program-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) 1.1fr;
+  gap: 24px;
+  background: white;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-top: 20px;
+}
+
+.photo {
+  min-height: 230px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 18px;
+  background: #f2f5f9;
+  border: 2px dashed #b5c0cf;
+  border-radius: 10px;
+  color: var(--muted);
+  overflow: hidden;
+}
+
+.photo img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
   border-radius: 8px;
-  padding: 12px;
-  margin: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
 }
+
+.photo-icon { font-size: 35px; display: block; }
 
 footer {
-  background: #06162e;
-  color: #d9e4f1;
-  padding: 27px 20px;
+  background: #07172e;
+  color: white;
+  padding: 25px 20px;
   text-align: center;
 }
 
 footer a { color: var(--gold); }
 
-@media (max-width: 600px) {
-  .brand { font-size: 14px; }
-  .hero { padding: 54px 20px; }
-  .program-card { grid-template-columns: 1fr; }
-  .photo-placeholder { min-height: 170px; }
-  .section { padding: 40px 16px; }
-  .admin-item {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+.admin-hero {
+  background: linear-gradient(120deg, #091b36, #174a7c);
+  color: white;
+  padding: 38px 22px;
+}
+
+.admin-hero h1 { margin: 0; font-size: 30px; }
+
+.admin-hero p { color: #dce7f5; }
+
+.admin-content { padding: 25px 20px 60px; }
+
+.admin-welcome {
+  background: white;
+  border-radius: 13px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 15px;
+}
+
+.admin-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.admin-card .icon { font-size: 28px; }
+
+.admin-card h3 { margin: 7px 0; color: var(--navy); }
+
+.admin-card p { color: var(--muted); font-size: 14px; }
+
+.form-box {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 22px;
+  border-radius: 12px;
+  max-width: 760px;
+}
+
+.field { margin: 14px 0; }
+
+.field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.field input, .field textarea, .field select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccd5e0;
+  border-radius: 7px;
+  background: white;
+}
+
+.field textarea { min-height: 120px; }
+
+.admin-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-row p { margin: 3px 0; color: var(--muted); font-size: 13px; }
+
+.login-box {
+  max-width: 450px;
+  margin: 45px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 13px;
+  border: 1px solid var(--border);
+}
+
+.small { font-size: 12px; color: var(--muted); }
+
+@media(max-width:650px) {
+  .program-layout { grid-template-columns: 1fr; }
+  .photo { min-height: 190px; }
+  .hero { padding: 50px 20px; }
+  .brand { font-size: 13px; }
 }
 </style>
 </head>
+
 <body>
 
-<div class="topbar">Portal Informasi Sekolah • Kota Bekasi</div>
+<div class="top">PORTAL INFORMASI SEKOLAH • KOTA BEKASI</div>
 
-<header class="header">
-  <div class="headinner">
-    <a href="#beranda" class="brand">
-      <span class="crest">SMK<br>8</span>
+<header>
+  <div class="head">
+    <a href="#beranda" class="brand" onclick="goHome()">
+      <span class="logo">SMK<br>8</span>
       <span>SMK NEGERI 8<br>KOTA BEKASI</span>
     </a>
-    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Buka menu">☰</button>
   </div>
 
   <nav class="drawer" id="drawer">
-    <a href="#beranda" onclick="closeMenu()">⌂ Beranda</a>
-    <a href="#spmb" onclick="closeMenu()">SPMB 2026</a>
+    <a href="#beranda" onclick="goHome()">⌂ Beranda</a>
+    <a href="#spmb" onclick="openPage('spmb')">SPMB 2026</a>
 
-    <div class="group-title" data-toggle="infoSub">INFO <span>＋</span></div>
+    <div class="menu-title" onclick="toggleSub('infoSub',this)">
+      Informasi Sekolah <span>＋</span>
+    </div>
     <div class="submenu" id="infoSub">
-      <a class="sub" href="#visi" onclick="closeMenu()">Visi Misi</a>
-      <a class="sub" href="#kegiatan" onclick="closeMenu()">Kegiatan Sekolah</a>
-      <a class="sub" href="#lowongan" onclick="closeMenu()">Lowongan Pekerjaan</a>
-      <a class="sub" href="#dunia-smk" onclick="closeMenu()">Dunia SMK</a>
-      <a class="sub" href="#berita" onclick="closeMenu()">Berita</a>
-      <a class="sub" href="#kelulusan" onclick="closeMenu()">Informasi Kelulusan TA. 2026/2027</a>
+      <a class="sub" href="#visi" onclick="openPage('visi')">Visi dan Misi</a>
+      <a class="sub" href="#kegiatan" onclick="openPage('kegiatan')">Kegiatan Sekolah</a>
+      <a class="sub" href="#lowongan" onclick="openPage('lowongan')">Lowongan Pekerjaan</a>
+      <a class="sub" href="#dunia" onclick="openPage('dunia')">Dunia SMK</a>
+      <a class="sub" href="#berita" onclick="openPage('berita')">Berita Sekolah</a>
+      <a class="sub" href="#kelulusan" onclick="openPage('kelulusan')">Kelulusan TA. 2026/2027</a>
     </div>
 
-    <div class="group-title" data-toggle="programSub">PROGRAM KEAHLIAN <span>＋</span></div>
+    <div class="menu-title" onclick="toggleSub('programSub',this)">
+      Program Keahlian <span>＋</span>
+    </div>
     <div class="submenu" id="programSub">
-      <a class="sub" href="#dgm" onclick="closeMenu()">Desain Gambar Mesin</a>
-      <a class="sub" href="#animasi" onclick="closeMenu()">Animasi</a>
-      <a class="sub" href="#grafika" onclick="closeMenu()">Desain Grafika</a>
-      <a class="sub" href="#akl" onclick="closeMenu()">Akuntansi &amp; Keuangan Lembaga</a>
-      <a class="sub" href="#tkj" onclick="closeMenu()">Teknik Komputer dan Jaringan</a>
+      <a class="sub" href="#dgm" onclick="openPage('dgm')">Desain Gambar Mesin</a>
+      <a class="sub" href="#animasi" onclick="openPage('animasi')">Animasi</a>
+      <a class="sub" href="#grafika" onclick="openPage('grafika')">Desain Grafika</a>
+      <a class="sub" href="#akl" onclick="openPage('akl')">Akuntansi & Keuangan Lembaga</a>
+      <a class="sub" href="#tkj" onclick="openPage('tkj')">Teknik Komputer dan Jaringan</a>
     </div>
 
-    <a href="#galeri" onclick="closeMenu()">Galeri</a>
-    <a href="#admin" onclick="closeMenu()">Admin</a>
+    <div class="menu-title" onclick="toggleSub('galeriSub',this)">
+      Galeri Sekolah <span>＋</span>
+    </div>
+    <div class="submenu" id="galeriSub">
+      <a class="sub" href="#masjid" onclick="openPage('masjid')">Masjid</a>
+      <a class="sub" href="#perpustakaan" onclick="openPage('perpustakaan')">Perpustakaan</a>
+      <a class="sub" href="#lab" onclick="openPage('lab')">Laboratorium</a>
+      <a class="sub" href="#uks" onclick="openPage('uks')">UKS</a>
+      <a class="sub" href="#koperasi" onclick="openPage('koperasi')">Koperasi</a>
+      <a class="sub" href="#kantin" onclick="openPage('kantin')">Kantin</a>
+      <a class="sub" href="#parkiran" onclick="openPage('parkiran')">Parkiran Kendaraan</a>
+    </div>
+
+    <a href="#admin" onclick="openAdmin()">⚙ Admin Website</a>
   </nav>
 </header>
 
-<main>
-<section class="hero" id="beranda">
-  <div class="hero-inner">
-    <div class="eyebrow">SMK NEGERI 8 KOTA BEKASI</div>
-    <h1>Membangun Generasi Terampil, Kreatif, dan Siap Berkarya</h1>
-    <p>Selamat datang di portal informasi SMK Negeri 8 Kota Bekasi. Kenali program keahlian, kegiatan, dan informasi sekolah melalui halaman ini.</p>
-    <a class="btn" href="#program">Jelajahi Program Keahlian</a>
-  </div>
-</section>
-
-<section class="section" id="spmb">
-  <div class="container">
-    <h2 class="section-title">SPMB 2026</h2>
-    <p class="lead">Informasi Sistem Penerimaan Murid Baru akan ditampilkan di bagian ini.</p>
-    <div class="empty">Informasi SPMB belum ditambahkan.</div>
-  </div>
-</section>
-
-  <section class="section" id="visi">
-  <div class="container">
-    <h2 class="section-title">Visi dan Misi</h2>
-    <p class="lead">SMK Negeri 8 Kota Bekasi</p>
-
-    <div class="vision">
-      <h3>Visi</h3>
-      <p><strong>Mewujudkan Tamatan TERKINI “Berkarakter, Kreatif, Nalar Kritis, Kolaboratif dan Inovatif”</strong></p>
-      <ol>
-        <li><strong>Berkarakter:</strong> Memiliki karakter berintegritas tinggi, berkepribadian bersahaja, bermartabat, religius, disiplin, jujur, serta memiliki keluasan IPTEK dan IMTAQ serta profesional.</li>
-        <li><strong>Kreatif:</strong> Mampu memodifikasi dan menghasilkan sesuatu yang inovatif atau orisinal, bermakna, bermanfaat, dan berdampak pada kompetensi.</li>
-        <li><strong>Nalar Kritis:</strong> Mampu memperoleh dan memproses informasi serta gagasan, menganalisis dan mengevaluasi penalaran, merefleksi pemikiran serta proses berpikir dalam pengambilan keputusan.</li>
-        <li><strong>Kolaboratif:</strong> Mampu mengomunikasikan perbedaan dalam suatu masalah untuk menemukan solusi serta membangun kolaborasi dengan dunia kerja dan dunia industri dalam pembelajaran dan pelatihan.</li>
-        <li><strong>Inovatif:</strong> Mampu mendayagunakan pikiran dan sumber daya di sekelilingnya serta mengimplementasikannya dalam karya inovatif dan orisinal yang bermanfaat bagi banyak orang.</li>
-      </ol>
+<!-- HALAMAN DEPAN: HANYA INFORMASI PENTING -->
+<main id="publicHome">
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">SMK NEGERI 8 KOTA BEKASI</div>
+      <h1>Membangun Generasi Terampil, Kreatif, dan Siap Berkarya</h1>
+      <p>Selamat datang di portal informasi SMK Negeri 8 Kota Bekasi.</p>
+      <a class="btn" href="#visi" onclick="openPage('visi')">Kenali Sekolah Kami</a>
     </div>
+  </section>
 
-    <div class="vision">
-      <h3>Misi</h3>
-      <ol>
-        <li>Melaksanakan proses pendidikan mental dan spiritual yang mendorong tumbuhnya nilai-nilai religius, budi pekerti, menjunjung tinggi semangat toleransi, dan gotong royong sesuai karakter jati diri pelajar.</li>
-        <li>Mengembangkan potensi dan kreativitas agar unggul serta mampu bersaing di tingkat nasional, regional, maupun internasional melalui kolaborasi dan inovasi dalam penerapan proses belajar mengajar yang aktif, kreatif, inovatif, efisien, interaktif, inspiratif, memotivasi, menantang, dan menyenangkan sehingga tercipta kolaborasi dengan IDUKA.</li>
-        <li>Menyelenggarakan dan memfokuskan pendidikan berbasis Teknik Informatika dan Kewirausahaan untuk menumbuhkan jiwa kewirausahaan yang kreatif dan inovatif.</li>
-        <li>Mengintegrasikan penerapan delapan SNP (Standar Nasional Pendidikan) dengan PLH (Pendidikan Lingkungan Hidup) dalam organisasi sekolah secara berkesinambungan.</li>
-        <li>Menerapkan dan memadukan konsep pengelolaan sekolah antara Manajemen Berbasis Sekolah (MBS) dengan memanfaatkan Teknologi Informasi dan Komunikasi (TIK) dalam mengimplementasikan Kurikulum Merdeka.</li>
-      </ol>
+  <section class="section">
+    <div class="wrap">
+      <h2>Informasi Kelulusan TA. 2026/2027</h2>
+      <p class="muted">Informasi resmi kelulusan akan ditampilkan di sini.</p>
+      <div id="homeKelulusan" class="notice">Belum ada pengumuman kelulusan.</div>
+      <button class="btn btn-blue" onclick="openPage('kelulusan')">Lihat Informasi</button>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" id="kegiatan">
-  <div class="container">
-    <h2 class="section-title">Kegiatan Sekolah</h2>
-    <p class="lead">Informasi kegiatan siswa dan sekolah.</p>
-    <div id="kegiatanContent" class="empty">Belum ada informasi kegiatan sekolah.</div>
-  </div>
-</section>
+  <section class="section" style="background:#eaf0f7">
+    <div class="wrap">
+      <h2>Berita Sekolah</h2>
+      <p class="muted">Kabar dan informasi terbaru dari sekolah.</p>
+      <div id="homeBerita" class="grid">
+        <div class="notice">Belum ada berita yang ditambahkan.</div>
+      </div>
+      <button class="btn btn-blue" onclick="openPage('berita')">Lihat Semua Berita</button>
+    </div>
+  </section>
 
-<section class="section" id="lowongan">
-  <div class="container">
-    <h2 class="section-title">Lowongan Pekerjaan</h2>
-    <p class="lead">Informasi kesempatan kerja untuk siswa dan lulusan.</p>
-    <div id="lowonganContent" class="empty">Belum ada informasi lowongan pekerjaan.</div>
-  </div>
-</section>
+  <section class="section">
+    <div class="wrap">
+      <h2>Visi Sekolah</h2>
+      <p><strong>Mewujudkan Tamatan TERKINI “Berkarakter, Kreatif, Nalar Kritis, Kolaboratif dan Inovatif”.</strong></p>
+      <button class="btn btn-blue" onclick="openPage('visi')">Baca Visi dan Misi</button>
+    </div>
+  </section>
+</main>
 
-<section class="section" id="dunia-smk">
-  <div class="container">
-    <h2 class="section-title">Dunia SMK</h2>
-    <p class="lead">Mengenal pembelajaran dan pengalaman siswa Sekolah Menengah Kejuruan.</p>
-
-    <div class="cards">
-      <article class="card">
-        <h3>Belajar Teori dan Praktik</h3>
-        <p>Siswa mempelajari dasar pengetahuan sekaligus mempraktikkan keterampilan sesuai program keahliannya.</p>
-      </article>
-
-      <article class="card">
-        <h3>Praktik Kerja Lapangan</h3>
-        <p>PKL memberikan pengalaman mengenal lingkungan kerja dan menerapkan keterampilan yang dipelajari di sekolah.</p>
-      </article>
-
-      <article class="card">
-        <h3>Teknologi dan Peralatan</h3>
-        <p>Siswa belajar menggunakan perangkat, peralatan, dan teknologi yang berkaitan dengan bidang keahliannya.</p>
-      </article>
-
-      <article class="card">
-        <h3>Kerja Sama Industri</h3>
-        <p>Hubungan dengan dunia usaha dan dunia industri membantu siswa mengenal kebutuhan serta kebiasaan di tempat kerja.</p>
-      </article>
-
-      <article class="card">
-        <h3>Kewirausahaan</h3>
-        <p>Siswa mengembangkan kreativitas, belajar merancang produk atau jasa, dan mengenal cara membangun usaha.</p>
-      </article>
-
-      <article class="card">
-        <h3>Siap Melangkah ke Masa Depan</h3>
-        <p>Pengalaman belajar membantu siswa mempersiapkan diri untuk bekerja, berwirausaha, atau melanjutkan pendidikan.</p>
-      </article>
+<!-- HALAMAN INFORMASI: KONTEN DIBUKA SATU PER SATU -->
+<main id="pageView" class="hidden">
+  <div class="page-head">
+    <div class="wrap">
+      <button class="back" onclick="goHome()">← Kembali ke Beranda</button>
+      <h1 id="pageTitle">Informasi Sekolah</h1>
+      <p id="pageIntro" class="muted"></p>
     </div>
   </div>
-</section>
+  <section class="page">
+    <div class="wrap" id="pageContent"></div>
+  </section>
+</main>
 
-<section class="section" id="berita">
-  <div class="container">
-    <h2 class="section-title">Berita Sekolah</h2>
-    <p class="lead">Informasi dan kabar terbaru dari sekolah.</p>
-    <div id="beritaContent" class="cards">
-      <div class="empty">Belum ada berita yang ditambahkan.</div>
+<!-- HALAMAN LOGIN ADMIN -->
+<main id="adminLogin" class="hidden">
+  <div class="page-head">
+    <div class="wrap">
+      <button class="back" onclick="goHome()">← Kembali ke Website</button>
+      <h1>Admin Website</h1>
+      <p class="muted">Masuk untuk mengelola informasi sekolah.</p>
     </div>
   </div>
-</section>
 
-<section class="section" id="kelulusan">
-  <div class="container">
-    <h2 class="section-title">Informasi Kelulusan TA. 2026/2027</h2>
-    <p class="lead">Informasi kelulusan akan diumumkan melalui bagian ini.</p>
-    <div id="kelulusanContent" class="empty">Informasi kelulusan belum tersedia.</div>
+  <div class="login-box">
+    <h2>Selamat Datang, Admin!</h2>
+    <p class="muted">Silakan masuk untuk mengelola isi website.</p>
+
+    <div class="field">
+      <label for="username">Nama pengguna</label>
+      <input id="username" placeholder="Contoh: admin">
+    </div>
+
+    <div class="field">
+      <label for="password">Kata sandi</label>
+      <input id="password" type="password" placeholder="Masukkan kata sandi">
+    </div>
+
+    <button class="btn btn-blue" onclick="login()" style="width:100%">Masuk ke Panel Admin</button>
+    <p id="loginMsg" style="color:#b42332"></p>
+    <p class="small">Demo: admin / smkn8demo</p>
   </div>
-</section>
+</main>
 
-<section class="section" id="program">
-  <div class="container">
-    <h2 class="section-title">Program Keahlian</h2>
-    <p class="lead">Kenali bidang keahlian dan kegiatan belajar siswa di setiap jurusan.</p>
+<!-- LANDING PAGE ADMIN YANG TERPISAH -->
+<main id="adminHome" class="hidden">
+  <section class="admin-hero">
+    <div class="wrap">
+      <div class="eyebrow">PANEL PENGELOLAAN</div>
+      <h1>Halo, Admin! 👋</h1>
+      <p>Selamat datang. Mau mengubah bagian website yang mana hari ini?</p>
+      <button class="btn" onclick="goHome()">Lihat Website</button>
+      <button class="btn" style="background:white" onclick="logout()">Keluar</button>
+    </div>
+  </section>
 
-    <article class="program-card" id="dgm">
-      <div class="photo-placeholder" id="photo-dgm">
-        <div><span>▧</span>Tempat foto siswa DGM<br><small>Foto diisi melalui Admin</small></div>
+  <section class="admin-content">
+    <div class="wrap">
+      <div class="admin-welcome">
+        <h2>Pengelolaan Website</h2>
+        <p class="muted">Pilih salah satu kotak di bawah. Kamu tidak perlu mengubah kode untuk menambahkan konten di demo ini.</p>
       </div>
-      <div>
-        <span class="tag">PROGRAM KEAHLIAN</span>
-        <h3>Desain Gambar Mesin (DGM)</h3>
-        <p>Bidang keahlian yang berkaitan dengan gambar teknik, perencanaan bentuk komponen, dan gambar rancangan mesin.</p>
-      </div>
-    </article>
 
-    <article class="program-card" id="animasi">
-      <div class="photo-placeholder" id="photo-animasi">
-        <div><span>▧</span>Tempat foto siswa Animasi<br><small>Foto diisi melalui Admin</small></div>
-      </div>
-      <div>
-        <span class="tag">PROGRAM KEAHLIAN</span>
-        <h3>Animasi</h3>
-        <p>Bidang keahlian yang mempelajari pembuatan karya animasi, pengembangan karakter, gerak, dan konten visual digital.</p>
-      </div>
-    </article>
+      <div class="admin-cards">
+        <div class="admin-card">
+          <div class="icon">📰</div>
+          <h3>Berita Sekolah</h3>
+          <p>Tambahkan berita dan pengumuman terbaru.</p>
+          <button class="btn btn-blue" onclick="openEditor('berita')">Kelola Berita</button>
+        </div>
 
-    <article class="program-card" id="grafika">
-      <div class="photo-placeholder" id="photo-grafika">
-        <div><span>▧</span>Tempat foto siswa Desain Grafika<br><small>Foto diisi melalui Admin</small></div>
-      </div>
-      <div>
-        <span class="tag">PROGRAM KEAHLIAN</span>
-        <h3>Desain Grafika</h3>
-        <p>Bidang keahlian yang berkaitan dengan desain visual, tata letak, pengolahan gambar, dan proses produksi grafika.</p>
-      </div>
-    </article>
+        <div class="admin-card">
+          <div class="icon">🎓</div>
+          <h3>Informasi Kelulusan</h3>
+          <p>Kelola informasi kelulusan tahun ajaran 2026/2027.</p>
+          <button class="btn btn-blue" onclick="openEditor('kelulusan')">Kelola Kelulusan</button>
+        </div>
 
-    <article class="program-card" id="akl">
-      <div class="photo-placeholder" id="photo-akl">
-        <div><span>▧</span>Tempat foto siswa AKL<br><small>Foto diisi melalui Admin</small></div>
-      </div>
-      <div>
-        <span class="tag">PROGRAM KEAHLIAN</span>
-        <h3>Akuntansi &amp; Keuangan Lembaga</h3>
-        <p>Bidang keahlian yang mempelajari pencatatan transaksi, laporan keuangan, administrasi, dan pengelolaan keuangan.</p>
-      </div>
-    </article>
+        <div class="admin-card">
+          <div class="icon">🏫</div>
+          <h3>Kegiatan Sekolah</h3>
+          <p>Tambahkan informasi kegiatan siswa dan sekolah.</p>
+          <button class="btn btn-blue" onclick="openEditor('kegiatan')">Kelola Kegiatan</button>
+        </div>
 
-    <article class="program-card" id="tkj">
-      <div class="photo-placeholder" id="photo-tkj">
-        <div><span>▧</span>Tempat foto siswa TKJ<br><small>Foto diisi melalui Admin</small></div>
-      </div>
-      <div>
-        <span class="tag">PROGRAM KEAHLIAN</span>
-        <h3>Teknik Komputer dan Jaringan (TKJ)</h3>
-        <p>Bidang keahlian yang mempelajari perangkat komputer, instalasi sistem, jaringan komputer, server, dan pemecahan masalah teknis.</p>
-      </div>
-    </article>
-  </div>
-</section>
+        <div class="admin-card">
+          <div class="icon">💼</div>
+          <h3>Lowongan Pekerjaan</h3>
+          <p>Tambahkan informasi lowongan untuk lulusan.</p>
+          <button class="btn btn-blue" onclick="openEditor('lowongan')">Kelola Lowongan</button>
+        </div>
 
-  <section class="section" id="galeri">
-  <div class="container">
-    <h2 class="section-title">Galeri Sekolah</h2>
-    <p class="lead">Lihat fasilitas dan lingkungan SMK Negeri 8 Kota Bekasi.</p>
+        <div class="admin-card">
+          <div class="icon">📸</div>
+          <h3>Foto Program Keahlian</h3>
+          <p>Unggah foto siswa untuk masing-masing jurusan.</p>
+          <button class="btn btn-blue" onclick="openEditor('program')">Kelola Foto Jurusan</button>
+        </div>
 
-    <div id="galeriContent" class="cards">
-      <div class="empty">Foto galeri belum ditambahkan.</div>
+        <div class="admin-card">
+          <div class="icon">🖼️</div>
+          <h3>Galeri Sekolah</h3>
+          <p>Tambahkan foto fasilitas sekolah.</p>
+          <button class="btn btn-blue" onclick="openEditor('galeri')">Kelola Galeri</button>
+        </div>
+      </div>
+
+      <div class="admin-welcome" style="margin-top:22px">
+        <h2>Konten yang Sudah Ditambahkan</h2>
+        <p class="muted">Di sini kamu bisa melihat dan menghapus konten yang sudah disimpan.</p>
+        <div id="adminList"></div>
+      </div>
+
+      <p class="small">Catatan: data demo disimpan di browser ini saja.</p>
+    </div>
+  </section>
+</main>
+
+<!-- FORM ADMIN -->
+<main id="adminEditor" class="hidden">
+  <div class="page-head">
+    <div class="wrap">
+      <button class="back" onclick="showAdminHome()">← Kembali ke Panel Admin</button>
+      <h1 id="editorTitle">Kelola Konten</h1>
+      <p class="muted" id="editorIntro">Isi formulir di bawah ini.</p>
     </div>
   </div>
-</section>
 
-<section class="section" id="admin">
-  <div class="container">
-    <h2 class="section-title">Admin Website</h2>
-    <p class="lead">Kelola berita, kegiatan, lowongan, kelulusan, foto jurusan, dan galeri sekolah.</p>
+  <section class="admin-content">
+    <div class="wrap">
+      <div class="form-box">
+        <h2 id="formHeading">Tambah Informasi</h2>
+        <p class="muted">Isi bagian yang tersedia, lalu tekan tombol simpan.</p>
 
-    <div class="admin-box">
-      <div id="loginPanel">
-        <h3>Login Admin</h3>
-        <div class="field">
-          <label for="username">Nama pengguna</label>
-          <input id="username" type="text" placeholder="Masukkan nama pengguna">
-        </div>
-        <div class="field">
-          <label for="password">Kata sandi</label>
-          <input id="password" type="password" placeholder="Masukkan kata sandi">
-        </div>
-        <button class="btn-dark" onclick="login()">Masuk</button>
-        <p id="loginMessage"></p>
-        <p class="notice">Demo: nama pengguna admin, kata sandi smkn8demo. Ganti sistem login ini sebelum digunakan secara resmi.</p>
-      </div>
-
-      <div id="adminPanel" class="hidden">
-        <h3>Panel Pengelolaan Konten</h3>
-        <p class="notice">Data pada versi ini disimpan di browser yang sedang digunakan. Pengunjung dari browser lain tidak otomatis menerima perubahan ini.</p>
-
-        <div class="field">
-          <label for="contentType">Pilih bagian yang ingin dikelola</label>
-          <select id="contentType">
-            <option value="berita">Berita</option>
-            <option value="kegiatan">Kegiatan Sekolah</option>
-            <option value="lowongan">Lowongan Pekerjaan</option>
-            <option value="kelulusan">Informasi Kelulusan 2026/2027</option>
-            <option value="galeri">Galeri Sekolah</option>
-          </select>
+        <div class="field" id="titleField">
+          <label id="titleLabel" for="itemTitle">Judul informasi</label>
+          <input id="itemTitle" placeholder="Contoh: Kegiatan sekolah">
         </div>
 
-        <div class="field">
-          <label for="contentTitle">Judul</label>
-          <input id="contentTitle" type="text" placeholder="Masukkan judul">
+        <div class="field" id="descriptionField">
+          <label for="itemDesc">Keterangan</label>
+          <textarea id="itemDesc" placeholder="Tuliskan informasi yang ingin ditampilkan..."></textarea>
         </div>
 
-        <div class="field">
-          <label for="contentDescription">Keterangan</label>
-          <textarea id="contentDescription" placeholder="Masukkan informasi atau keterangan"></textarea>
-        </div>
-
-        <div class="field">
-          <label for="contentPhoto">Foto (opsional)</label>
-          <input id="contentPhoto" type="file" accept="image/*">
-          <small>Gunakan gambar berukuran wajar agar penyimpanan browser tidak cepat penuh.</small>
-        </div>
-
-        <button class="btn-dark" onclick="saveContent()">Simpan Konten</button>
-
-        <hr style="margin:25px 0;border:0;border-top:1px solid #e1e7ef">
-
-        <h3>Foto Program Keahlian</h3>
-        <p>Unggah foto siswa untuk ditampilkan pada kartu jurusan.</p>
-
-        <div class="field">
-          <label for="programSelect">Pilih program keahlian</label>
+        <div class="field" id="programField" class="hidden">
+          <label for="programSelect">Pilih jurusan</label>
           <select id="programSelect">
             <option value="dgm">Desain Gambar Mesin (DGM)</option>
             <option value="animasi">Animasi</option>
@@ -659,381 +615,436 @@ footer a { color: var(--gold); }
           </select>
         </div>
 
-        <div class="field">
-          <label for="programPhoto">Pilih foto siswa</label>
-          <input id="programPhoto" type="file" accept="image/*">
+        <div class="field" id="galleryField" class="hidden">
+          <label for="gallerySelect">Pilih lokasi galeri</label>
+          <select id="gallerySelect">
+            <option>Masjid</option>
+            <option>Perpustakaan</option>
+            <option>Laboratorium</option>
+            <option>UKS</option>
+            <option>Koperasi</option>
+            <option>Kantin</option>
+            <option>Parkiran Kendaraan</option>
+          </select>
         </div>
 
-        <button class="btn-dark" onclick="saveProgramPhoto()">Simpan Foto Jurusan</button>
-
-        <div class="admin-list">
-          <h3>Konten Tersimpan</h3>
-          <div id="adminList"></div>
+        <div class="field" id="imageField">
+          <label for="itemImage">Foto (boleh dikosongkan)</label>
+          <input id="itemImage" type="file" accept="image/*">
+          <p class="small">Gunakan foto berukuran kecil, maksimal 1 MB.</p>
         </div>
 
-        <button class="btn-red" onclick="logout()">Keluar dari Admin</button>
+        <button class="btn btn-blue" onclick="saveItem()">Simpan Informasi</button>
+        <button class="btn btn-red" onclick="showAdminHome()">Batal</button>
+        <p id="saveMsg" class="muted"></p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <footer>
-  <p><strong>SMK NEGERI 8 KOTA BEKASI</strong></p>
-  <p>Portal informasi sekolah</p>
-  <a href="#admin">Admin Website</a>
-  <p style="font-size:12px;color:#aebed2">© 2026 SMK Negeri 8 Kota Bekasi</p>
+  <strong>SMK NEGERI 8 KOTA BEKASI</strong>
+  <p>Portal Informasi Sekolah</p>
+  <a href="#admin" onclick="openAdmin()">Admin Website</a>
+  <p class="small">© <span id="year"></span> SMK Negeri 8 Kota Bekasi</p>
 </footer>
 
 <script>
-const STORAGE_KEY = "smkn8_website_content_v1";
-const PHOTO_KEY = "smkn8_program_photos_v1";
+const KEY = "smkn8_demo_v3";
+let data = loadData();
+let currentType = "berita";
 
-let contents = readStorage(STORAGE_KEY, []);
-let programPhotos = readStorage(PHOTO_KEY, {});
-
-function readStorage(key, fallback) {
+function loadData() {
   try {
-    const value = localStorage.getItem(key);
-    return value ? JSON.parse(value) : fallback;
-  } catch (error) {
-    return fallback;
+    return JSON.parse(localStorage.getItem(KEY)) || {
+      berita: [], kegiatan: [], lowongan: [], kelulusan: [],
+      galeri: [], program: {}
+    };
+  } catch(e) {
+    return {
+      berita: [], kegiatan: [], lowongan: [], kelulusan: [],
+      galeri: [], program: {}
+    };
   }
 }
 
-function writeStorage(key, value) {
+function saveData() {
   try {
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(KEY, JSON.stringify(data));
     return true;
-  } catch (error) {
+  } catch(e) {
     alert("Penyimpanan browser penuh. Coba gunakan foto yang lebih kecil.");
     return false;
   }
 }
 
-const menuBtn = document.getElementById("menuBtn");
-const drawer = document.getElementById("drawer");
-
-menuBtn.addEventListener("click", function() {
-  drawer.classList.toggle("open");
-});
-
-function closeMenu() {
-  drawer.classList.remove("open");
+function toggleMenu() {
+  document.getElementById("drawer").classList.toggle("open");
 }
 
-document.querySelectorAll("[data-toggle]").forEach(function(item) {
-  item.addEventListener("click", function() {
-    const target = document.getElementById(item.dataset.toggle);
-    target.classList.toggle("open");
-    const symbol = item.querySelector("span");
-    if (symbol) {
-      symbol.textContent = target.classList.contains("open") ? "−" : "＋";
-    }
+function closeMenu() {
+  document.getElementById("drawer").classList.remove("open");
+}
+
+function toggleSub(id, el) {
+  const sub = document.getElementById(id);
+  sub.classList.toggle("open");
+  el.querySelector("span").textContent =
+    sub.classList.contains("open") ? "−" : "＋";
+}
+
+const programInfo = {
+  dgm: {
+    name: "Desain Gambar Mesin (DGM)",
+    desc: "Mempelajari gambar teknik, perancangan komponen, dan gambar rancangan mesin."
+  },
+  animasi: {
+    name: "Animasi",
+    desc: "Mempelajari pembuatan animasi, pengembangan karakter, gerak, dan konten visual digital."
+  },
+  grafika: {
+    name: "Desain Grafika",
+    desc: "Mempelajari desain visual, tata letak, pengolahan gambar, dan produksi grafika."
+  },
+  akl: {
+    name: "Akuntansi & Keuangan Lembaga",
+    desc: "Mempelajari pencatatan transaksi, laporan keuangan, dan administrasi keuangan."
+  },
+  tkj: {
+    name: "Teknik Komputer dan Jaringan (TKJ)",
+    desc: "Mempelajari komputer, instalasi sistem, jaringan, server, dan pemecahan masalah teknis."
+  }
+};
+
+const visions = `
+<div class="card">
+<h3>Visi</h3>
+<p><strong>Mewujudkan Tamatan TERKINI “Berkarakter, Kreatif, Nalar Kritis, Kolaboratif dan Inovatif”.</strong></p>
+</div>
+<div class="card">
+<h3>Misi</h3>
+<ol>
+<li>Melaksanakan pendidikan mental dan spiritual yang mendorong nilai religius, budi pekerti, toleransi, dan gotong royong sesuai karakter jati diri pelajar.</li>
+<li>Mengembangkan potensi dan kreativitas agar unggul serta mampu bersaing di tingkat nasional, regional, maupun internasional melalui kolaborasi dan inovasi dalam proses belajar yang aktif, kreatif, efisien, interaktif, inspiratif, memotivasi, menantang, dan menyenangkan sehingga tercipta kolaborasi dengan IDUKA.</li>
+<li>Menyelenggarakan pendidikan berbasis Teknik Informatika dan Kewirausahaan untuk menumbuhkan jiwa kewirausahaan yang kreatif dan inovatif.</li>
+<li>Mengintegrasikan delapan SNP dengan Pendidikan Lingkungan Hidup dalam organisasi sekolah secara berkesinambungan.</li>
+<li>Menerapkan Manajemen Berbasis Sekolah dengan memanfaatkan Teknologi Informasi dan Komunikasi dalam implementasi Kurikulum Merdeka.</li>
+</ol>
+</div>`;
+
+function showOnly(id) {
+  ["publicHome","pageView","adminLogin","adminHome","adminEditor"].forEach(x => {
+    document.getElementById(x).classList.add("hidden");
   });
-});
+  document.getElementById(id).classList.remove("hidden");
+  closeMenu();
+  window.scrollTo(0,0);
+}
+
+function goHome() {
+  showOnly("publicHome");
+  history.replaceState(null, "", location.pathname);
+}
+
+function openAdmin() {
+  showOnly(sessionStorage.getItem("smkn8_admin") === "1"
+    ? "adminHome" : "adminLogin");
+}
 
 function login() {
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value;
+  const u = document.getElementById("username").value.trim();
+  const p = document.getElementById("password").value;
 
-  if (username === "admin" && password === "smkn8demo") {
-    document.getElementById("loginPanel").classList.add("hidden");
-    document.getElementById("adminPanel").classList.remove("hidden");
-    document.getElementById("loginMessage").textContent = "";
-    renderAdminList();
+  if (u === "admin" && p === "smkn8demo") {
+    sessionStorage.setItem("smkn8_admin","1");
+    document.getElementById("loginMsg").textContent = "";
+    showAdminHome();
   } else {
-    document.getElementById("loginMessage").textContent =
-      "Nama pengguna atau kata sandi salah.";
+    document.getElementById("loginMsg").textContent =
+      "Nama pengguna atau kata sandi belum benar.";
   }
 }
 
 function logout() {
-  document.getElementById("adminPanel").classList.add("hidden");
-  document.getElementById("loginPanel").classList.remove("hidden");
-  document.getElementById("password").value = "";
+  sessionStorage.removeItem("smkn8_admin");
+  showOnly("adminLogin");
 }
 
-function readImage(file) {
-  return new Promise(function(resolve, reject) {
-    if (!file) {
-      resolve("");
-      return;
-    }
-
-    if (!file.type.startsWith("image/")) {
-      reject(new Error("File harus berupa gambar."));
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = function() {
-      resolve(reader.result);
-    };
-    reader.onerror = function() {
-      reject(new Error("Gambar gagal dibaca."));
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
-async function saveContent() {
-  const type = document.getElementById("contentType").value;
-  const title = document.getElementById("contentTitle").value.trim();
-  const description = document.getElementById("contentDescription").value.trim();
-  const file = document.getElementById("contentPhoto").files[0];
-
-  if (!title) {
-    alert("Isi judul terlebih dahulu.");
+function showAdminHome() {
+  if (sessionStorage.getItem("smkn8_admin") !== "1") {
+    openAdmin();
     return;
   }
-
-  try {
-    const photo = await readImage(file);
-
-    const item = {
-      id: Date.now(),
-      type: type,
-      title: title,
-      description: description,
-      photo: photo
-    };
-
-    contents.push(item);
-
-    if (!writeStorage(STORAGE_KEY, contents)) {
-      contents.pop();
-      return;
-    }
-
-    document.getElementById("contentTitle").value = "";
-    document.getElementById("contentDescription").value = "";
-    document.getElementById("contentPhoto").value = "";
-
-    renderContent();
-    renderAdminList();
-    alert("Konten berhasil disimpan di browser ini.");
-  } catch (error) {
-    alert(error.message || "Konten gagal disimpan.");
-  }
-}
-
-async function saveProgramPhoto() {
-  const program = document.getElementById("programSelect").value;
-  const file = document.getElementById("programPhoto").files[0];
-
-  if (!file) {
-    alert("Pilih foto terlebih dahulu.");
-    return;
-  }
-
-  try {
-    const photo = await readImage(file);
-    const previous = programPhotos[program];
-    programPhotos[program] = photo;
-
-    if (!writeStorage(PHOTO_KEY, programPhotos)) {
-      if (previous) {
-        programPhotos[program] = previous;
-      } else {
-        delete programPhotos[program];
-      }
-      return;
-    }
-
-    document.getElementById("programPhoto").value = "";
-    renderProgramPhotos();
-    alert("Foto jurusan berhasil disimpan di browser ini.");
-  } catch (error) {
-    alert(error.message || "Foto gagal disimpan.");
-  }
-}
-
-function renderProgramPhotos() {
-  Object.keys(programPhotos).forEach(function(program) {
-    const target = document.getElementById("photo-" + program);
-    const photo = programPhotos[program];
-
-    if (target && photo) {
-      target.style.padding = "0";
-      target.style.border = "0";
-      target.style.overflow = "hidden";
-      target.innerHTML = "";
-
-      const img = document.createElement("img");
-      img.src = photo;
-      img.alt = "Foto siswa program " + program;
-      img.style.width = "100%";
-      img.style.height = "220px";
-      img.style.objectFit = "cover";
-      img.style.borderRadius = "10px";
-
-      target.appendChild(img);
-    }
-  });
-}
-
-const typeLabels = {
-  berita: "Berita",
-  kegiatan: "Kegiatan Sekolah",
-  lowongan: "Lowongan Pekerjaan",
-  kelulusan: "Informasi Kelulusan",
-  galeri: "Galeri Sekolah"
-};
-
-function renderContent() {
-  Object.keys(typeLabels).forEach(function(type) {
-    const target = document.getElementById(type + "Content");
-    if (!target) return;
-
-    target.innerHTML = "";
-    const items = contents.filter(function(item) {
-      return item.type === type;
-    });
-
-    if (items.length === 0) {
-      const empty = document.createElement("div");
-      empty.className = "empty";
-      empty.textContent = type === "kelulusan"
-        ? "Informasi kelulusan TA. 2026/2027 belum tersedia."
-        : "Belum ada informasi yang ditambahkan.";
-      target.appendChild(empty);
-      return;
-    }
-
-    items.forEach(function(item) {
-      const card = document.createElement("article");
-      card.className = "card";
-
-      const heading = document.createElement("h3");
-      heading.textContent = item.title;
-      card.appendChild(heading);
-
-      if (item.photo) {
-        const img = document.createElement("img");
-        img.src = item.photo;
-        img.alt = item.title;
-        img.style.width = "100%";
-        img.style.maxHeight = "300px";
-        img.style.objectFit = "cover";
-        img.style.borderRadius = "8px";
-        card.appendChild(img);
-      }
-
-      const paragraph = document.createElement("p");
-      paragraph.textContent = item.description;
-      card.appendChild(paragraph);
-      target.appendChild(card);
-    });
-  });
-}
-
-function renderAdminList() {
-  const target = document.getElementById("adminList");
-  if (!target) return;
-
-  target.innerHTML = "";
-
-  if (contents.length === 0) {
-    target.textContent = "Belum ada konten tambahan.";
-    return;
-  }
-
-  contents.slice().reverse().forEach(function(item) {
-    const row = document.createElement("div");
-    row.className = "admin-item";
-
-    const info = document.createElement("div");
-    const title = document.createElement("strong");
-    title.textContent = item.title;
-
-    const detail = document.createElement("div");
-    detail.style.fontSize = "13px";
-    detail.style.color = "#68768a";
-    detail.textContent = typeLabels[item.type] || item.type;
-
-    info.appendChild(title);
-    info.appendChild(detail);
-
-    const actions = document.createElement("div");
-
-    const edit = document.createElement("button");
-    edit.className = "btn-dark";
-    edit.textContent = "Edit";
-    edit.style.marginRight = "5px";
-    edit.onclick = function() {
-      editContent(item.id);
-    };
-
-    const remove = document.createElement("button");
-    remove.className = "btn-red";
-    remove.textContent = "Hapus";
-    remove.onclick = function() {
-      deleteContent(item.id);
-    };
-
-    actions.appendChild(edit);
-    actions.appendChild(remove);
-    row.appendChild(info);
-    row.appendChild(actions);
-    target.appendChild(row);
-  });
-}
-
-function editContent(id) {
-  const item = contents.find(function(entry) {
-    return entry.id === id;
-  });
-
-  if (!item) return;
-
-  document.getElementById("contentType").value = item.type;
-  document.getElementById("contentTitle").value = item.title;
-  document.getElementById("contentDescription").value = item.description;
-
-  const updated = prompt(
-    "Untuk menyimpan perubahan, masukkan judul baru:",
-    item.title
-  );
-
-  if (updated === null) return;
-
-  const newDescription = prompt(
-    "Masukkan keterangan baru:",
-    item.description
-  );
-
-  if (newDescription === null) return;
-
-  item.title = updated.trim() || item.title;
-  item.description = newDescription;
-
-  if (writeStorage(STORAGE_KEY, contents)) {
-    renderContent();
-    renderAdminList();
-    alert("Perubahan berhasil disimpan.");
-  }
-}
-
-function deleteContent(id) {
-  if (!confirm("Yakin ingin menghapus konten ini?")) return;
-
-  const oldContents = contents;
-  contents = contents.filter(function(item) {
-    return item.id !== id;
-  });
-
-  if (!writeStorage(STORAGE_KEY, contents)) {
-    contents = oldContents;
-    return;
-  }
-
-  renderContent();
+  showOnly("adminHome");
   renderAdminList();
 }
 
-renderContent();
-renderProgramPhotos();
+function openEditor(type) {
+  if (sessionStorage.getItem("smkn8_admin") !== "1") {
+    openAdmin();
+    return;
+  }
+
+  currentType = type;
+  showOnly("adminEditor");
+
+  const names = {
+    berita: "Berita Sekolah",
+    kegiatan: "Kegiatan Sekolah",
+    lowongan: "Lowongan Pekerjaan",
+    kelulusan: "Informasi Kelulusan TA. 2026/2027",
+    program: "Foto Program Keahlian",
+    galeri: "Galeri Sekolah"
+  };
+
+  document.getElementById("editorTitle").textContent = names[type];
+  document.getElementById("formHeading").textContent = "Tambah " + names[type];
+  document.getElementById("itemTitle").value = "";
+  document.getElementById("itemDesc").value = "";
+  document.getElementById("itemImage").value = "";
+  document.getElementById("saveMsg").textContent = "";
+
+  document.getElementById("titleField").classList.toggle("hidden", type === "program");
+  document.getElementById("descriptionField").classList.toggle("hidden", type === "galeri");
+  document.getElementById("programField").classList.toggle("hidden", type !== "program");
+  document.getElementById("galleryField").classList.toggle("hidden", type !== "galeri");
+
+  document.getElementById("titleLabel").textContent =
+    type === "kelulusan" ? "Judul pengumuman" : "Judul informasi";
+
+  document.getElementById("itemTitle").placeholder =
+    type === "kelulusan" ? "Contoh: Pengumuman kelulusan" : "Tuliskan judul";
+
+  if (type === "program") {
+    document.getElementById("itemDesc").placeholder = "Keterangan jurusan (opsional)";
+  } else {
+    document.getElementById("itemDesc").placeholder = "Tuliskan keterangan informasi";
+  }
+}
+
+async function saveItem() {
+  if (sessionStorage.getItem("smkn8_admin") !== "1") {
+    alert("Silakan masuk sebagai Admin terlebih dahulu.");
+    return;
+  }
+
+  const file = document.getElementById("itemImage").files[0];
+  let image = "";
+
+  if (file) {
+    if (!file.type.startsWith("image/")) {
+      alert("Pilih file gambar.");
+      return;
+    }
+    if (file.size > 1024 * 1024) {
+      alert("Ukuran foto maksimal 1 MB. Pilih foto yang lebih kecil.");
+      return;
+    }
+    image = await new Promise(resolve => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.readAsDataURL(file);
+    });
+  }
+
+  if (currentType === "program") {
+    const id = document.getElementById("programSelect").value;
+    const old = data.program[id] || {};
+    data.program[id] = {
+      image: image || old.image || "",
+      desc: document.getElementById("itemDesc").value.trim() || programInfo[id].desc
+    };
+  } else if (currentType === "galeri") {
+    const title = document.getElementById("gallerySelect").value;
+    data.galeri.push({title, desc:"Foto fasilitas sekolah", image});
+  } else {
+    const title = document.getElementById("itemTitle").value.trim();
+    const desc = document.getElementById("itemDesc").value.trim();
+
+    if (!title) {
+      alert("Judul belum diisi. Tuliskan judul terlebih dahulu.");
+      return;
+    }
+
+    data[currentType].push({title, desc, image});
+  }
+
+  if (!saveData()) return;
+
+  document.getElementById("saveMsg").textContent =
+    "Berhasil disimpan! Konten sudah diperbarui pada browser ini.";
+
+  renderHome();
+  renderAdminList();
+  alert("Berhasil disimpan!");
+}
+
+function safe(text) {
+  return String(text || "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;",
+    '"':"&quot;", "'":"&#39;"
+  }[c]));
+}
+
+function renderItems(items) {
+  if (!items || !items.length) {
+    return '<div class="notice">Belum ada informasi yang ditambahkan.</div>';
+  }
+
+  return '<div class="grid">' + items.map(item => `
+    <article class="card">
+      ${item.image ? `<img src="${item.image}" alt="" style="width:100%;max-height:260px;object-fit:cover;border-radius:8px">` : ""}
+      <h3>${safe(item.title)}</h3>
+      <p>${safe(item.desc)}</p>
+    </article>`).join("") + '</div>';
+}
+
+function openPage(id) {
+  const names = {
+    spmb: ["SPMB 2026","Informasi penerimaan murid baru."],
+    visi: ["Visi dan Misi","Arah dan tujuan pendidikan sekolah."],
+    kegiatan: ["Kegiatan Sekolah","Informasi kegiatan sekolah."],
+    lowongan: ["Lowongan Pekerjaan","Informasi kesempatan kerja."],
+    dunia: ["Dunia SMK","Kegiatan dan pengalaman belajar siswa SMK."],
+    berita: ["Berita Sekolah","Kabar terbaru dari sekolah."],
+    kelulusan: ["Informasi Kelulusan TA. 2026/2027","Pengumuman kelulusan."],
+    masjid: ["Galeri: Masjid","Foto fasilitas masjid sekolah."],
+    perpustakaan: ["Galeri: Perpustakaan","Foto fasilitas perpustakaan."],
+    lab: ["Galeri: Laboratorium","Foto laboratorium sekolah."],
+    uks: ["Galeri: UKS","Foto fasilitas UKS."],
+    koperasi: ["Galeri: Koperasi","Foto koperasi sekolah."],
+    kantin: ["Galeri: Kantin","Foto kantin sekolah."],
+    parkiran: ["Galeri: Parkiran Kendaraan","Foto area parkir sekolah."]
+  };
+
+  if (programInfo[id]) {
+    const info = programInfo[id];
+    const saved = data.program[id] || {};
+    document.getElementById("pageTitle").textContent = info.name;
+    document.getElementById("pageIntro").textContent = "Program Keahlian SMK Negeri 8 Kota Bekasi";
+    document.getElementById("pageContent").innerHTML = `
+      <div class="program-layout">
+        <div class="photo">
+          ${saved.image ? `<img src="${saved.image}" alt="Foto siswa ${safe(info.name)}">`
+          : `<div><span class="photo-icon">▧</span>Tempat foto siswa<br>Foto akan ditambahkan Admin</div>`}
+        </div>
+        <div>
+          <span class="eyebrow">PROGRAM KEAHLIAN</span>
+          <h2>${safe(info.name)}</h2>
+          <p>${safe(saved.desc || info.desc)}</p>
+        </div>
+      </div>`;
+    showOnly("pageView");
+    return;
+  }
+
+  const page = names[id];
+  if (!page) return;
+
+  document.getElementById("pageTitle").textContent = page[0];
+  document.getElementById("pageIntro").textContent = page[1];
+
+  let content = "";
+
+  if (id === "visi") {
+    content = visions;
+  } else if (id === "dunia") {
+    content = `
+      <div class="grid">
+        <article class="card"><h3>Belajar Teori dan Praktik</h3><p>Siswa belajar pengetahuan dasar sekaligus mempraktikkan keterampilan sesuai jurusan.</p></article>
+        <article class="card"><h3>Praktik Kerja Lapangan</h3><p>PKL membantu siswa mengenal dunia kerja dan menerapkan ilmu dari sekolah.</p></article>
+        <article class="card"><h3>Teknologi dan Proyek</h3><p>Siswa mengerjakan proyek untuk melatih kreativitas dan kemampuan memecahkan masalah.</p></article>
+        <article class="card"><h3>Kewirausahaan</h3><p>Siswa belajar mengembangkan ide dan mengenal cara membangun usaha.</p></article>
+      </div>`;
+  } else if (id === "spmb") {
+    content = '<div class="notice">Informasi SPMB belum ditambahkan.</div>';
+  } else if (id === "kelulusan") {
+    content = renderItems(data.kelulusan);
+  } else if (id === "berita") {
+    content = renderItems(data.berita);
+  } else if (id === "kegiatan") {
+    content = renderItems(data.kegiatan);
+  } else if (id === "lowongan") {
+    content = renderItems(data.lowongan);
+  } else {
+    const location = page[0].replace("Galeri: ","");
+    content = renderItems(data.galeri.filter(x => x.title === location));
+  }
+
+  document.getElementById("pageContent").innerHTML = content;
+  showOnly("pageView");
+}
+
+function renderHome() {
+  document.getElementById("homeBerita").innerHTML = renderItems(data.berita.slice(-3).reverse());
+  document.getElementById("homeKelulusan").innerHTML = renderItems(data.kelulusan);
+}
+
+function renderAdminList() {
+  const box = document.getElementById("adminList");
+  if (!box) return;
+
+  const types = {
+    berita:"Berita",
+    kegiatan:"Kegiatan Sekolah",
+    lowongan:"Lowongan Pekerjaan",
+    kelulusan:"Informasi Kelulusan",
+    galeri:"Galeri"
+  };
+
+  let rows = [];
+
+  Object.keys(types).forEach(type => {
+    (data[type] || []).forEach((item, index) => {
+      rows.push({type, index, item});
+    });
+  });
+
+  Object.keys(data.program || {}).forEach(id => {
+    if (data.program[id].image) {
+      rows.push({
+        type:"program",
+        index:id,
+        item:{title:programInfo[id].name, desc:"Foto program keahlian"}
+      });
+    }
+  });
+
+  if (!rows.length) {
+    box.innerHTML = '<p class="notice">Belum ada konten tambahan. Pilih salah satu menu pengelolaan di atas untuk memulai.</p>';
+    return;
+  }
+
+  box.innerHTML = rows.map(row => `
+    <div class="admin-row">
+      <div>
+        <strong>${safe(row.item.title)}</strong>
+        <p>${safe(types[row.type] || "Foto Program Keahlian")}</p>
+      </div>
+      <button class="btn btn-red" onclick="deleteItem('${row.type}', '${row.index}')">Hapus</button>
+    </div>`).join("");
+}
+
+function deleteItem(type, index) {
+  if (!confirm("Yakin ingin menghapus konten ini?")) return;
+
+  if (type === "program") {
+    delete data.program[index];
+  } else {
+    data[type].splice(Number(index), 1);
+  }
+
+  if (saveData()) {
+    renderHome();
+    renderAdminList();
+    alert("Konten berhasil dihapus.");
+  }
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderHome();
+renderAdminList();
 </script>
 
 </body>
