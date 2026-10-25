@@ -3,947 +3,490 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SMKN 8 Kota Bekasi | Website Resmi Sekolah</title>
+<title>SMKN 8 Kota Bekasi</title>
 
 <style>
 :root {
-    --biru: #123b70;
-    --biru-gelap: #092344;
-    --emas: #f2bd45;
-    --putih: #ffffff;
-    --abu: #f4f7fb;
-    --teks: #263449;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--teks);
-    line-height: 1.7;
-    background: #fff;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-header {
-    background: var(--biru-gelap);
-    color: white;
-    padding: 14px 6%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--emas);
-    color: var(--biru-gelap);
-    display: grid;
-    place-items: center;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.logo h2 {
-    font-size: 17px;
-    line-height: 1.4;
-}
-
-.logo p {
-    font-size: 11px;
-    color: #d8e3f2;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-}
-
-nav a {
-    font-size: 13px;
-    color: white;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: var(--emas);
-}
-
-.hero {
-    min-height: 540px;
-    background: linear-gradient(120deg, #092344ed, #123b70df),
-                url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 100px 8%;
-    display: flex;
-    align-items: center;
-}
-
-.hero-content {
-    max-width: 720px;
-}
-
-.label {
-    display: inline-block;
-    background: #f2bd4520;
-    border: 1px solid var(--emas);
-    color: var(--emas);
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: clamp(35px, 6vw, 60px);
-    line-height: 1.15;
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: var(--emas);
-}
-
-.hero p {
-    font-size: 16px;
-    max-width: 600px;
-    color: #e4edf8;
-    margin-bottom: 30px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 22px;
-    border-radius: 7px;
-    font-weight: bold;
-    font-size: 14px;
-    margin: 5px 7px 5px 0;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-gold {
-    background: var(--emas);
-    color: var(--biru-gelap);
-}
-
-.btn-outline {
-    border: 1px solid white;
-    color: white;
-}
-
-.btn:hover {
-    opacity: .85;
-}
-
-.info-strip {
-    background: var(--emas);
-    color: var(--biru-gelap);
-    padding: 17px 6%;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-section {
-    padding: 75px 7%;
-}
-
-.section-heading {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 40px;
-}
-
-.section-heading small {
-    color: #b17a0a;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.section-heading h2 {
-    color: var(--biru-gelap);
-    font-size: 32px;
-    margin: 8px 0;
-}
-
-.section-heading p {
-    color: #68778a;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.about-image {
-    min-height: 340px;
-    border-radius: 15px;
-    background: linear-gradient(#123b7020, #123b7040),
-                url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80");
-    background-size: cover;
-    background-position: center;
-}
-
-.about-text h3 {
-    font-size: 26px;
-    color: var(--biru-gelap);
-    margin-bottom: 15px;
-}
-
-.about-text p {
-    margin-bottom: 14px;
-    color: #5c6878;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.card {
-    background: white;
-    border: 1px solid #e7ebf1;
-    padding: 25px;
-    border-radius: 13px;
-    box-shadow: 0 5px 20px #122c4d08;
-    transition: .2s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px #122c4d15;
-}
-
-.card-icon {
-    width: 52px;
-    height: 52px;
-    display: grid;
-    place-items: center;
-    background: #eaf1fb;
-    color: var(--biru);
-    border-radius: 12px;
-    font-size: 25px;
-    margin-bottom: 17px;
-}
-
-.card h3 {
-    color: var(--biru-gelap);
-    font-size: 18px;
-    margin-bottom: 9px;
-}
-
-.card p {
-    color: #69778a;
-    font-size: 14px;
-}
-
-.bg-light {
-    background: var(--abu);
-}
-
-.program-card {
-    border-top: 4px solid var(--emas);
-}
-
-.program-card .number {
-    color: #b17a0a;
-    font-size: 13px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.spm b {
-    color: var(--biru);
-}
-
-.cta {
-    background: linear-gradient(120deg, var(--biru-gelap), var(--biru));
-    color: white;
-    border-radius: 18px;
-    padding: 45px;
-    text-align: center;
-}
-
-.cta h2 {
-    font-size: 30px;
-    margin-bottom: 12px;
-}
-
-.cta p {
-    color: #d9e5f5;
-    margin-bottom: 20px;
-}
-
-.news-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.news-card {
-    border: 1px solid #e3e8ef;
-    border-radius: 12px;
-    padding: 22px;
-    background: white;
-    overflow-wrap: anywhere;
-}
-
-.news-card small {
-    color: #b17a0a;
-    font-weight: bold;
-}
-
-.news-card h3 {
-    color: var(--biru-gelap);
-    margin: 8px 0;
-}
-
-.news-card p {
-    color: #657286;
-    font-size: 14px;
-    white-space: pre-wrap;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.gallery-item {
-    min-height: 150px;
-    border-radius: 12px;
-    padding: 25px;
-    background: linear-gradient(135deg, var(--biru), var(--biru-gelap));
-    color: white;
-    display: flex;
-    align-items: end;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.admin-box {
-    max-width: 550px;
-    margin: auto;
-    background: white;
-    border: 1px solid #e2e8f0;
-    padding: 25px;
-    border-radius: 12px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0 15px;
-    border: 1px solid #ccd5e1;
-    border-radius: 7px;
-    font: inherit;
-}
-
-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-footer {
-    background: #071a32;
-    color: white;
-    padding: 45px 7% 20px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-footer h3 {
-    color: var(--emas);
-    margin-bottom: 12px;
-}
-
-footer p, footer a {
-    display: block;
-    color: #d0dbea;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.copyright {
-    border-top: 1px solid #ffffff25;
-    padding-top: 20px;
-    text-align: center;
-    color: #aebdd1;
-    font-size: 12px;
-}
-
-.notice {
-    font-size: 13px;
-    color: #657286;
-    margin-top: 12px;
-}
-
-.hidden {
-    display: none;
-}
-
-@media (max-width: 800px) {
-    header {
-        position: relative;
-    }
-
-    nav {
-        gap: 12px;
-    }
-
-    nav a {
-        font-size: 12px;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .cards, .news-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 520px) {
-    section {
-        padding: 55px 5%;
-    }
-
-    .cards, .news-list, .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding: 75px 6%;
-    }
-
-    .cta {
-        padding: 30px 20px;
-    }
-
-    .section-heading h2 {
-        font-size: 27px;
-    }
-}
+  --blue:#123c70;
+  --dark:#081d36;
+  --gold:#efbd4e;
+  --light:#f3f6fb;
+  --text:#263449;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;color:var(--text);line-height:1.7}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer}
+header{background:var(--dark);color:white;padding:15px 6%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--dark);font-weight:bold}
+.brand h2{font-size:17px}
+.brand p{font-size:11px;color:#cbd8e8}
+nav{display:flex;gap:17px;flex-wrap:wrap}
+nav a{font-size:13px;font-weight:bold}
+nav a:hover{color:var(--gold)}
+.hero{padding:100px 8%;min-height:470px;display:flex;align-items:center;color:white;background:linear-gradient(100deg,#081d36f5,#123c70c9),url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&q=80') center/cover}
+.hero-content{max-width:720px}
+.tag{color:var(--gold);font-size:12px;font-weight:bold;letter-spacing:2px}
+.hero h1{font-size:clamp(36px,6vw,60px);line-height:1.15;margin:15px 0}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#e3ebf5;margin-bottom:25px}
+.btn{display:inline-block;padding:12px 20px;border:0;border-radius:6px;font-weight:bold;margin:4px}
+.gold{background:var(--gold);color:var(--dark)}
+.outline{border:1px solid white;color:white}
+section{padding:65px 7%}
+.light{background:var(--light)}
+.heading{text-align:center;max-width:700px;margin:0 auto 35px}
+.heading small{color:#a87913;font-weight:bold;letter-spacing:2px}
+.heading h2{font-size:30px;color:var(--dark);margin:8px 0}
+.heading p{color:#69778a}
+.welcome{text-align:center;background:var(--gold);padding:15px;color:var(--dark);font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:white;border:1px solid #e3e8ef;border-radius:12px;overflow:hidden}
+.card-body{padding:20px}
+.card h3{color:var(--dark);margin-bottom:8px}
+.card p{font-size:14px;color:#68778a;white-space:pre-wrap;overflow-wrap:anywhere}
+.card img{width:100%;height:200px;object-fit:cover;background:#e1e7ef}
+.badge{font-size:11px;color:#a87913;font-weight:bold}
+.feature{padding:25px;border-top:4px solid var(--gold)}
+.feature-icon{font-size:30px;margin-bottom:10px}
+.cta{background:linear-gradient(120deg,var(--dark),var(--blue));color:white;border-radius:14px;text-align:center;padding:40px}
+.cta h2{font-size:28px;margin-bottom:10px}
+.cta p{color:#d5e1f0;margin-bottom:15px}
+footer{background:#071629;color:#d0dbea;padding:35px 7%;font-size:13px;text-align:center}
+.admin-link{opacity:.45;font-size:11px;margin-top:15px;display:inline-block}
+.admin-link:hover{opacity:1}
+.admin-wrap{max-width:750px;margin:auto}
+.admin-box{padding:25px;background:white;border:1px solid #dfe6ef;border-radius:12px;margin-bottom:20px}
+input,textarea{width:100%;padding:12px;margin:6px 0 14px;border:1px solid #ccd5e1;border-radius:6px;font:inherit}
+textarea{min-height:100px}
+.hidden{display:none!important}
+.danger{background:#b42318;color:white;border:0;border-radius:5px;padding:7px 12px;margin-top:10px}
+.smallbtn{background:var(--blue);color:white;border:0;border-radius:5px;padding:10px 15px}
+.note{font-size:12px;color:#68778a;margin-top:10px}
+@media(max-width:750px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}header{align-items:flex-start}nav{gap:12px}.hero{padding:70px 6%}}
+@media(max-width:500px){.grid{grid-template-columns:1fr}section{padding:48px 5%}.hero h1{font-size:38px}.heading h2{font-size:26px}}
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">
-        <div class="logo-icon">8</div>
-        <div>
-            <h2>SMKN 8 KOTA BEKASI</h2>
-            <p>Sekolah Menengah Kejuruan Negeri</p>
-        </div>
+  <div class="brand">
+    <div class="logo">8</div>
+    <div>
+      <h2>SMKN 8 KOTA BEKASI</h2>
+      <p>Website Informasi Sekolah</p>
     </div>
+  </div>
 
-    <nav>
-        <a href="#beranda">Beranda</a>
-        <a href="#profil">Profil</a>
-        <a href="#spmb">Info SPMB</a>
-        <a href="#program">Program Keahlian</a>
-        <a href="#berita">Berita</a>
-        <a href="#galeri">Galeri</a>
-        <a href="#admin">Admin</a>
-    </nav>
+  <nav>
+    <a href="#beranda">Beranda</a>
+    <a href="#berita">Berita</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#fasilitas">Fasilitas</a>
+    <a href="#profil">Profil</a>
+    <a href="#program">Program Keahlian</a>
+    <a href="#spmb">SPMB</a>
+  </nav>
 </header>
 
 <main>
 <section class="hero" id="beranda">
-    <div class="hero-content">
-        <span class="label">WEBSITE INFORMASI SEKOLAH</span>
-        <h1>Selamat Datang di<br><span>SMKN 8 Kota Bekasi</span></h1>
-        <p>
-            Mengenal lebih dekat sekolah, program keahlian, kegiatan,
-            informasi penerimaan murid baru, dan berbagai berita sekolah.
-        </p>
-        <a href="#profil" class="btn btn-gold">Jelajahi Sekolah</a>
-        <a href="#spmb" class="btn btn-outline">Informasi SPMB</a>
-    </div>
+  <div class="hero-content">
+    <span class="tag">SELAMAT DATANG DI WEBSITE SEKOLAH</span>
+    <h1>Selamat Datang di<br><span>SMKN 8 Kota Bekasi</span></h1>
+    <p>
+      Temukan informasi terbaru, kegiatan sekolah, galeri, fasilitas,
+      dan program keahlian SMKN 8 Kota Bekasi dalam satu tempat.
+    </p>
+    <a href="#berita" class="btn gold">Lihat Berita</a>
+    <a href="#profil" class="btn outline">Kenali Sekolah</a>
+  </div>
 </section>
 
-<div class="info-strip">
-    BELAJAR • BERKARYA • BERPRESTASI • SIAP MENGHADAPI MASA DEPAN
-</div>
+<div class="welcome">BERKARYA • BELAJAR • BERPRESTASI • MENYIAPKAN MASA DEPAN</div>
+
+<section id="berita" class="light">
+  <div class="heading">
+    <small>INFORMASI TERBARU</small>
+    <h2>Berita Sekolah</h2>
+    <p>Ikuti berita, pengumuman, dan kegiatan terbaru sekolah.</p>
+  </div>
+  <div class="grid" id="beritaList"></div>
+</section>
+
+<section id="galeri">
+  <div class="heading">
+    <small>DOKUMENTASI</small>
+    <h2>Galeri Sekolah</h2>
+    <p>Dokumentasi kegiatan dan suasana lingkungan sekolah.</p>
+  </div>
+  <div class="grid" id="galeriList"></div>
+</section>
+
+<section id="fasilitas" class="light">
+  <div class="heading">
+    <small>LINGKUNGAN BELAJAR</small>
+    <h2>Fasilitas Sekolah</h2>
+    <p>Kenali fasilitas yang mendukung kegiatan belajar di sekolah.</p>
+  </div>
+  <div class="grid" id="fasilitasList"></div>
+</section>
 
 <section id="profil">
-    <div class="section-heading">
-        <small>Profil Sekolah</small>
-        <h2>Mengenal SMKN 8 Kota Bekasi</h2>
-        <p>Informasi umum mengenai sekolah dan lingkungan pembelajaran.</p>
-    </div>
-
-    <div class="about-grid">
-        <div class="about-image"></div>
-        <div class="about-text">
-            <h3>Pendidikan untuk Masa Depan</h3>
-            <p>
-                SMKN 8 Kota Bekasi merupakan sekolah menengah kejuruan
-                yang menjadi bagian dari dunia pendidikan di Kota Bekasi.
-            </p>
-            <p>
-                Website ini disediakan sebagai sarana informasi mengenai
-                profil sekolah, program keahlian, kegiatan, berita, dan
-                informasi penting lainnya.
-            </p>
-            <a href="#program" class="btn btn-gold">Lihat Program Keahlian</a>
-        </div>
-    </div>
+  <div class="heading">
+    <small>PROFIL SEKOLAH</small>
+    <h2>Mengenal SMKN 8 Kota Bekasi</h2>
+    <p>Website informasi sekolah untuk siswa, orang tua, guru, dan masyarakat.</p>
+  </div>
+  <div class="grid">
+    <article class="card feature">
+      <div class="feature-icon">🎯</div>
+      <h3>Visi Sekolah</h3>
+      <p>Tambahkan visi resmi sekolah melalui pengelolaan konten admin.</p>
+    </article>
+    <article class="card feature">
+      <div class="feature-icon">📘</div>
+      <h3>Misi Sekolah</h3>
+      <p>Tambahkan misi resmi sekolah melalui pengelolaan konten admin.</p>
+    </article>
+    <article class="card feature">
+      <div class="feature-icon">🤝</div>
+      <h3>Budaya Sekolah</h3>
+      <p>Mendorong kedisiplinan, kreativitas, kerja sama, dan tanggung jawab.</p>
+    </article>
+  </div>
 </section>
 
-<section class="bg-light" id="visi-misi">
-    <div class="section-heading">
-        <small>Arah Pendidikan</small>
-        <h2>Visi dan Misi</h2>
-        <p>Silakan sesuaikan bagian ini dengan visi dan misi resmi sekolah.</p>
-    </div>
-
-    <div class="cards">
-        <div class="card">
-            <div class="card-icon">🎯</div>
-            <h3>Visi Sekolah</h3>
-            <p>
-                Menjadi satuan pendidikan yang unggul dalam menghasilkan
-                lulusan kompeten, berkarakter, dan siap menghadapi
-                perkembangan zaman.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="card-icon">📘</div>
-            <h3>Misi Pendidikan</h3>
-            <p>
-                Menyelenggarakan pembelajaran berkualitas, mengembangkan
-                keterampilan, dan menumbuhkan sikap disiplin serta tanggung jawab.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="card-icon">🤝</div>
-            <h3>Budaya Sekolah</h3>
-            <p>
-                Mendorong kerja sama, kreativitas, kepedulian, dan semangat
-                belajar di lingkungan sekolah.
-            </p>
-        </div>
-    </div>
+<section id="program" class="light">
+  <div class="heading">
+    <small>PILIHAN KEAHLIAN</small>
+    <h2>Program Keahlian</h2>
+    <p>Kenali bidang keahlian yang ditampilkan di website sekolah.</p>
+  </div>
+  <div class="grid">
+    <article class="card feature"><div class="feature-icon">💻</div><h3>Teknik Komputer dan Jaringan</h3><p>Komputer, jaringan, perangkat, dan teknologi informasi.</p></article>
+    <article class="card feature"><div class="feature-icon">🎬</div><h3>Animasi</h3><p>Pembuatan animasi dan karya digital.</p></article>
+    <article class="card feature"><div class="feature-icon">🎨</div><h3>Desain Grafika</h3><p>Desain visual, tata letak, dan produksi grafika.</p></article>
+    <article class="card feature"><div class="feature-icon">📊</div><h3>Akuntansi dan Keuangan Lembaga</h3><p>Pencatatan keuangan dan administrasi akuntansi.</p></article>
+    <article class="card feature"><div class="feature-icon">🏦</div><h3>Perbankan Syariah</h3><p>Layanan perbankan dan prinsip keuangan syariah.</p></article>
+    <article class="card feature"><div class="feature-icon">🖌️</div><h3>DGM</h3><p>Tambahkan keterangan resmi program keahlian ini.</p></article>
+  </div>
 </section>
 
 <section id="spmb">
-    <div class="section-heading">
-        <small>Penerimaan Murid Baru</small>
-        <h2>Informasi SPMB</h2>
-        <p>Informasi penerimaan murid baru untuk calon peserta didik.</p>
-    </div>
-
-    <div class="cards">
-        <div class="card spm">
-            <div class="card-icon">📋</div>
-            <h3>Persyaratan</h3>
-            <p>
-                Periksa persyaratan calon murid baru berdasarkan pengumuman
-                resmi dari sekolah dan dinas pendidikan.
-            </p>
-        </div>
-
-        <div class="card spm">
-            <div class="card-icon">🗓️</div>
-            <h3>Jadwal Pendaftaran</h3>
-            <p>
-                Jadwal pendaftaran dapat berubah. Pastikan memeriksa informasi
-                resmi untuk mengetahui tanggal dan tahapan pendaftaran.
-            </p>
-        </div>
-
-        <div class="card spm">
-            <div class="card-icon">📢</div>
-            <h3>Pengumuman</h3>
-            <p>
-                Informasi hasil seleksi dan pengumuman SPMB mengikuti
-                ketentuan resmi yang berlaku.
-            </p>
-        </div>
-    </div>
-
-    <p class="notice">
-        Catatan: informasi pada bagian ini masih berupa informasi umum.
-        Lengkapi dengan jadwal, persyaratan, dan tautan resmi sebelum dipublikasikan.
-    </p>
+  <div class="cta">
+    <h2>Informasi SPMB</h2>
+    <p>Periksa pengumuman resmi sekolah untuk jadwal, persyaratan, dan tahapan penerimaan murid baru.</p>
+    <a href="#kontak" class="btn gold">Informasi Sekolah</a>
+  </div>
 </section>
 
-<section class="bg-light" id="program">
-    <div class="section-heading">
-        <small>Pilihan Pendidikan</small>
-        <h2>Program Keahlian</h2>
-        <p>Kenali bidang keahlian yang tersedia di website sekolah.</p>
-    </div>
-
-    <div class="cards">
-        <div class="card program-card">
-            <div class="number">PROGRAM 01</div>
-            <div class="card-icon">🎨</div>
-            <h3>Desain Grafika</h3>
-            <p>Mengenal desain visual, tata letak, dan proses produksi grafika.</p>
-        </div>
-
-        <div class="card program-card">
-            <div class="number">PROGRAM 02</div>
-            <div class="card-icon">🎬</div>
-            <h3>Animasi</h3>
-            <p>Mempelajari pembuatan animasi dan pengembangan karya digital.</p>
-        </div>
-
-        <div class="card program-card">
-            <div class="number">PROGRAM 03</div>
-            <div class="card-icon">🖥️</div>
-            <h3>Teknik Komputer dan Jaringan</h3>
-            <p>Mengenal komputer, jaringan, perangkat, dan teknologi informasi.</p>
-        </div>
-
-        <div class="card program-card">
-            <div class="number">PROGRAM 04</div>
-            <div class="card-icon">📊</div>
-            <h3>Akuntansi dan Keuangan Lembaga</h3>
-            <p>Mempelajari pencatatan keuangan, akuntansi, dan administrasi.</p>
-        </div>
-
-        <div class="card program-card">
-            <div class="number">PROGRAM 05</div>
-            <div class="card-icon">🏦</div>
-            <h3>Perbankan Syariah</h3>
-            <p>Mengenal layanan perbankan dan prinsip keuangan syariah.</p>
-        </div>
-
-        <div class="card program-card">
-            <div class="number">PROGRAM 06</div>
-            <div class="card-icon">🖌️</div>
-            <h3>DGM</h3>
-            <p>Informasi program dapat dilengkapi sesuai nama dan kurikulum resmi sekolah.</p>
-        </div>
-    </div>
+<section id="kontak" class="light">
+  <div class="heading">
+    <small>INFORMASI</small>
+    <h2>Kontak Sekolah</h2>
+    <p>Lengkapi bagian ini dengan alamat, email, dan nomor telepon resmi sekolah.</p>
+  </div>
+  <div class="grid">
+    <article class="card feature"><h3>📍 Alamat</h3><p>Tambahkan alamat resmi sekolah.</p></article>
+    <article class="card feature"><h3>✉️ Email</h3><p>Tambahkan email resmi sekolah.</p></article>
+    <article class="card feature"><h3>☎️ Telepon</h3><p>Tambahkan nomor telepon resmi sekolah.</p></article>
+  </div>
 </section>
 
-<section id="kegiatan">
-    <div class="section-heading">
-        <small>Aktivitas Sekolah</small>
-        <h2>Kegiatan Sekolah</h2>
-        <p>Tempat untuk menampilkan kegiatan akademik dan nonakademik.</p>
+<!-- HALAMAN ADMIN DEMO -->
+<section id="adminPanel" class="light hidden">
+  <div class="heading">
+    <small>PENGELOLAAN WEBSITE</small>
+    <h2>Admin Website</h2>
+    <p>Kelola berita, galeri, dan fasilitas.</p>
+  </div>
+
+  <div class="admin-wrap">
+    <div id="loginBox" class="admin-box">
+      <h3>Masuk Admin</h3>
+      <label>Nama pengguna</label>
+      <input id="adminUser" autocomplete="username" placeholder="Nama pengguna">
+      <label>Kata sandi</label>
+      <input id="adminPass" type="password" autocomplete="current-password" placeholder="Kata sandi">
+      <button class="smallbtn" onclick="login()">Masuk</button>
+      <p id="loginMessage" class="note"></p>
     </div>
 
-    <div class="cards">
-        <div class="card">
-            <div class="card-icon">🏆</div>
-            <h3>Prestasi Siswa</h3>
-            <p>Tambahkan informasi prestasi siswa dan penghargaan sekolah.</p>
-        </div>
+    <div id="editorBox" class="hidden">
+      <div class="admin-box">
+        <h3>Tambah Berita</h3>
+        <input id="newsTitle" placeholder="Judul berita">
+        <textarea id="newsText" placeholder="Isi berita"></textarea>
+        <input id="newsImage" placeholder="Alamat URL foto (opsional)">
+        <button class="smallbtn" onclick="addItem('berita')">Simpan Berita</button>
+      </div>
 
-        <div class="card">
-            <div class="card-icon">🎭</div>
-            <h3>Kegiatan Siswa</h3>
-            <p>Tambahkan informasi kegiatan, organisasi, dan ekstrakurikuler.</p>
-        </div>
+      <div class="admin-box">
+        <h3>Tambah Foto Galeri</h3>
+        <input id="galleryTitle" placeholder="Nama foto/kegiatan">
+        <input id="galleryImage" placeholder="Alamat URL gambar">
+        <button class="smallbtn" onclick="addItem('galeri')">Simpan Foto</button>
+      </div>
 
-        <div class="card">
-            <div class="card-icon">🛠️</div>
-            <h3>Praktik Kejuruan</h3>
-            <p>Tambahkan dokumentasi pembelajaran praktik sesuai bidang keahlian.</p>
-        </div>
-    </div>
-</section>
+      <div class="admin-box">
+        <h3>Tambah Fasilitas</h3>
+        <input id="facilityTitle" placeholder="Nama fasilitas">
+        <textarea id="facilityText" placeholder="Deskripsi fasilitas"></textarea>
+        <input id="facilityImage" placeholder="Alamat URL foto (opsional)">
+        <button class="smallbtn" onclick="addItem('fasilitas')">Simpan Fasilitas</button>
+      </div>
 
-<section class="bg-light" id="berita">
-    <div class="section-heading">
-        <small>Informasi Terbaru</small>
-        <h2>Berita Sekolah</h2>
-        <p>Berita dan pengumuman yang ditampilkan di website.</p>
-    </div>
-
-    <div class="news-list" id="daftarBerita">
-        <article class="news-card">
-            <small>INFORMASI SEKOLAH</small>
-            <h3>Selamat Datang di Website Sekolah</h3>
-            <p>Website ini menjadi tempat penyampaian informasi dan berita sekolah.</p>
-        </article>
-
-        <article class="news-card">
-            <small>INFORMASI PENDIDIKAN</small>
-            <h3>Informasi Program Keahlian</h3>
-            <p>Kenali program keahlian dan bidang pembelajaran yang tersedia.</p>
-        </article>
-
-        <article class="news-card">
-            <small>PENGUMUMAN</small>
-            <h3>Informasi SPMB</h3>
-            <p>Periksa pengumuman resmi untuk mendapatkan informasi penerimaan murid baru.</p>
-        </article>
-    </div>
-</section>
-
-<section id="kelulusan">
-    <div class="section-heading">
-        <small>Informasi Peserta Didik</small>
-        <h2>Informasi Kelulusan</h2>
-        <p>Informasi mengenai pengumuman kelulusan peserta didik.</p>
-    </div>
-
-    <div class="cta">
-        <h2>Informasi Kelulusan Siswa</h2>
-        <p>
-            Pengumuman kelulusan akan mengikuti jadwal dan ketentuan resmi sekolah.
-            Hubungi pihak sekolah untuk informasi lebih lanjut.
+      <div class="admin-box">
+        <h3>Konten yang Tersimpan di Browser Ini</h3>
+        <div id="adminItems"></div>
+        <button class="danger" onclick="logout()">Keluar Admin</button>
+        <p class="note">
+          Demo ini menyimpan konten pada browser yang sedang digunakan.
+          Perubahan belum tersinkron ke perangkat pengunjung lain.
         </p>
-        <a href="#kontak" class="btn btn-gold">Informasi Kontak</a>
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="bg-light" id="galeri">
-    <div class="section-heading">
-        <small>Fasilitas dan Lingkungan</small>
-        <h2>Galeri Sekolah</h2>
-        <p>Bagian ini dapat digunakan untuk menampilkan foto fasilitas sekolah.</p>
-    </div>
-
-    <div class="gallery-grid">
-        <div class="gallery-item">🕌 Masjid</div>
-        <div class="gallery-item">📚 Perpustakaan</div>
-        <div class="gallery-item">💻 Laboratorium</div>
-        <div class="gallery-item">🩺 UKS</div>
-        <div class="gallery-item">🏪 Koperasi</div>
-        <div class="gallery-item">🍽️ Kantin</div>
-        <div class="gallery-item">🛵 Parkiran Kendaraan</div>
-        <div class="gallery-item">🎓 Ruang Kegiatan</div>
-        <div class="gallery-item">🏫 Lingkungan Sekolah</div>
-    </div>
-</section>
-
-<section id="kontak">
-    <div class="section-heading">
-        <small>Hubungi Sekolah</small>
-        <h2>Informasi dan Kontak</h2>
-        <p>Gunakan informasi kontak resmi sekolah untuk pertanyaan lebih lanjut.</p>
-    </div>
-
-    <div class="cards">
-        <div class="card">
-            <div class="card-icon">📍</div>
-            <h3>Alamat Sekolah</h3>
-            <p>Tambahkan alamat resmi SMKN 8 Kota Bekasi di sini.</p>
-        </div>
-
-        <div class="card">
-            <div class="card-icon">✉️</div>
-            <h3>Email</h3>
-            <p>Tambahkan alamat email resmi sekolah di sini.</p>
-        </div>
-
-        <div class="card">
-            <div class="card-icon">☎️</div>
-            <h3>Telepon</h3>
-            <p>Tambahkan nomor telepon resmi sekolah di sini.</p>
-        </div>
-    </div>
-</section>
-
-<section class="bg-light" id="admin">
-    <div class="section-heading">
-        <small>Pengelolaan Konten</small>
-        <h2>Admin Website</h2>
-        <p>Formulir demo untuk menambahkan berita di browser ini.</p>
-    </div>
-
-    <div class="admin-box">
-        <h3>Masuk Admin</h3>
-        <p class="notice">
-            Demo ini tidak memakai sistem login yang aman. Jangan gunakan
-            kata sandi penting atau masukkan data rahasia.
-        </p>
-
-        <label for="username">Nama pengguna</label>
-        <input type="text" id="username" placeholder="Masukkan nama pengguna">
-
-        <label for="password">Kata sandi</label>
-        <input type="password" id="password" placeholder="Masukkan kata sandi">
-
-        <button class="btn btn-gold" onclick="loginAdmin()">Masuk</button>
-
-        <p id="pesanLogin" class="notice"></p>
-
-        <div id="panelAdmin" class="hidden">
-            <hr style="margin:20px 0;border:0;border-top:1px solid #ddd">
-
-            <h3>Tambah Berita</h3>
-
-            <label for="judulBerita">Judul berita</label>
-            <input type="text" id="judulBerita" placeholder="Masukkan judul berita">
-
-            <label for="isiBerita">Isi berita</label>
-            <textarea id="isiBerita" placeholder="Tulis isi berita"></textarea>
-
-            <button class="btn btn-gold" onclick="tambahBerita()">Publikasikan di Browser</button>
-            <button class="btn" style="background:#eee" onclick="logoutAdmin()">Keluar</button>
-
-            <p class="notice">
-                Catatan: berita disimpan di browser yang digunakan. Berita
-                tidak otomatis tampil di perangkat pengunjung lain dan dapat
-                hilang jika data browser dihapus.
-            </p>
-        </div>
-    </div>
-</section>
 </main>
 
 <footer>
-    <div class="footer-grid">
-        <div>
-            <h3>SMKN 8 Kota Bekasi</h3>
-            <p>
-                Website informasi sekolah untuk mengenal profil, program
-                keahlian, kegiatan, dan berita sekolah.
-            </p>
-        </div>
-
-        <div>
-            <h3>Navigasi</h3>
-            <a href="#beranda">Beranda</a>
-            <a href="#profil">Profil Sekolah</a>
-            <a href="#spmb">Informasi SPMB</a>
-            <a href="#program">Program Keahlian</a>
-        </div>
-
-        <div>
-            <h3>Informasi</h3>
-            <a href="#berita">Berita Sekolah</a>
-            <a href="#kelulusan">Informasi Kelulusan</a>
-            <a href="#galeri">Galeri Sekolah</a>
-            <a href="#kontak">Kontak</a>
-        </div>
-    </div>
-
-    <div class="copyright">
-        © <span id="tahun"></span> SMKN 8 Kota Bekasi. Website informasi sekolah.
-    </div>
+  <p>© <span id="year"></span> SMKN 8 Kota Bekasi</p>
+  <p>Website Informasi Sekolah</p>
+  <a class="admin-link" href="#admin" onclick="showAdmin()">Admin</a>
 </footer>
 
 <script>
-document.getElementById("tahun").textContent = new Date().getFullYear();
+const KEY = "smkn8_website_content_v1";
 
-let adminAktif = false;
+const defaults = {
+  berita: [
+    {title:"Selamat Datang di Website Sekolah",text:"Website informasi SMKN 8 Kota Bekasi.",image:""},
+    {title:"Informasi Program Keahlian",text:"Kenali program keahlian yang tersedia.",image:""},
+    {title:"Pengumuman Sekolah",text:"Periksa informasi resmi sekolah secara berkala.",image:""}
+  ],
+  galeri: [
+    {title:"Kegiatan Sekolah",text:"Dokumentasi kegiatan sekolah.",image:""},
+    {title:"Kegiatan Pembelajaran",text:"Suasana belajar dan berkarya.",image:""},
+    {title:"Lingkungan Sekolah",text:"Dokumentasi lingkungan sekolah.",image:""}
+  ],
+  fasilitas: [
+    {title:"Masjid",text:"Fasilitas ibadah sekolah.",image:""},
+    {title:"Perpustakaan",text:"Tempat membaca dan mencari sumber belajar.",image:""},
+    {title:"Laboratorium",text:"Fasilitas praktik pembelajaran.",image:""},
+    {title:"UKS",text:"Fasilitas pelayanan kesehatan sekolah.",image:""},
+    {title:"Koperasi",text:"Fasilitas koperasi sekolah.",image:""},
+    {title:"Kantin",text:"Fasilitas kantin sekolah.",image:""},
+    {title:"Parkiran Kendaraan",text:"Area parkir kendaraan.",image:""}
+  ]
+};
 
-function loginAdmin() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const pesan = document.getElementById("pesanLogin");
-
-    /*
-      LOGIN DEMO SAJA.
-      Ubah kredensial ini jika diperlukan, tetapi jangan gunakan
-      sistem ini untuk keamanan website sungguhan.
-      Login di HTML bisa dilihat pengunjung melalui kode sumber.
-    */
-    if (username === "admin" && password === "smkn8demo") {
-        adminAktif = true;
-        document.getElementById("panelAdmin").classList.remove("hidden");
-        pesan.textContent = "Berhasil masuk ke mode demo admin.";
-        pesan.style.color = "green";
-    } else {
-        pesan.textContent = "Nama pengguna atau kata sandi salah.";
-        pesan.style.color = "red";
-    }
+function loadData(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(KEY));
+    if(saved) return saved;
+  }catch(e){}
+  return JSON.parse(JSON.stringify(defaults));
 }
 
-function logoutAdmin() {
-    adminAktif = false;
-    document.getElementById("panelAdmin").classList.add("hidden");
-    document.getElementById("username").value = "";
-    document.getElementById("password").value = "";
-    document.getElementById("pesanLogin").textContent = "Kamu sudah keluar.";
+let data = loadData();
+
+function saveData(){
+  localStorage.setItem(KEY, JSON.stringify(data));
+  renderAll();
 }
 
-function tambahBerita() {
-    if (!adminAktif) {
-        alert("Silakan masuk ke mode demo admin terlebih dahulu.");
-        return;
+function makeCard(item, category, index){
+  const article = document.createElement("article");
+  article.className = "card";
+
+  if(item.image){
+    const img = document.createElement("img");
+    img.src = item.image;
+    img.alt = item.title || "Foto sekolah";
+    img.loading = "lazy";
+    img.onerror = () => img.remove();
+    article.appendChild(img);
+  }
+
+  const body = document.createElement("div");
+  body.className = "card-body";
+
+  const badge = document.createElement("span");
+  badge.className = "badge";
+  badge.textContent = category.toUpperCase();
+
+  const title = document.createElement("h3");
+  title.textContent = item.title;
+
+  const text = document.createElement("p");
+  text.textContent = item.text || "";
+
+  body.append(badge, title, text);
+  article.appendChild(body);
+
+  return article;
+}
+
+function renderList(id, category){
+  const target = document.getElementById(id);
+  target.replaceChildren();
+
+  data[category].forEach((item, index) => {
+    target.appendChild(makeCard(item, category, index));
+  });
+}
+
+function renderAll(){
+  renderList("beritaList", "berita");
+  renderList("galeriList", "galeri");
+  renderList("fasilitasList", "fasilitas");
+  renderAdminItems();
+}
+
+function showAdmin(){
+  document.getElementById("adminPanel").classList.remove("hidden");
+  document.getElementById("adminPanel").scrollIntoView();
+}
+
+function login(){
+  /*
+    PERHATIAN: LOGIN INI HANYA DEMO.
+    Kata sandi dalam JavaScript tidak aman untuk website publik.
+    Siapa pun bisa memeriksa kode halaman.
+    Ganti dengan autentikasi server/Firebase sebelum penggunaan nyata.
+  */
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
+
+  if(user === "admin" && pass === "smkn8demo"){
+    sessionStorage.setItem("smkn8_demo_admin", "yes");
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("editorBox").classList.remove("hidden");
+    renderAdminItems();
+  }else{
+    document.getElementById("loginMessage").textContent =
+      "Nama pengguna atau kata sandi salah.";
+  }
+}
+
+function logout(){
+  sessionStorage.removeItem("smkn8_demo_admin");
+  document.getElementById("loginBox").classList.remove("hidden");
+  document.getElementById("editorBox").classList.add("hidden");
+}
+
+function addItem(category){
+  if(sessionStorage.getItem("smkn8_demo_admin") !== "yes"){
+    alert("Silakan masuk sebagai admin.");
+    return;
+  }
+
+  let item;
+
+  if(category === "berita"){
+    item = {
+      title:document.getElementById("newsTitle").value.trim(),
+      text:document.getElementById("newsText").value.trim(),
+      image:document.getElementById("newsImage").value.trim()
+    };
+    if(!item.title || !item.text){
+      alert("Isi judul dan isi berita.");
+      return;
     }
+    ["newsTitle","newsText","newsImage"].forEach(id =>
+      document.getElementById(id).value = ""
+    );
+  }
 
-    const judul = document.getElementById("judulBerita").value.trim();
-    const isi = document.getElementById("isiBerita").value.trim();
-
-    if (!judul || !isi) {
-        alert("Judul dan isi berita harus diisi.");
-        return;
+  if(category === "galeri"){
+    item = {
+      title:document.getElementById("galleryTitle").value.trim(),
+      text:"Dokumentasi kegiatan sekolah.",
+      image:document.getElementById("galleryImage").value.trim()
+    };
+    if(!item.title || !item.image){
+      alert("Isi nama foto dan alamat URL gambar.");
+      return;
     }
+    ["galleryTitle","galleryImage"].forEach(id =>
+      document.getElementById(id).value = ""
+    );
+  }
 
-    const beritaBaru = document.createElement("article");
-    beritaBaru.className = "news-card";
+  if(category === "fasilitas"){
+    item = {
+      title:document.getElementById("facilityTitle").value.trim(),
+      text:document.getElementById("facilityText").value.trim(),
+      image:document.getElementById("facilityImage").value.trim()
+    };
+    if(!item.title || !item.text){
+      alert("Isi nama dan deskripsi fasilitas.");
+      return;
+    }
+    ["facilityTitle","facilityText","facilityImage"].forEach(id =>
+      document.getElementById(id).value = ""
+    );
+  }
 
-    const kategori = document.createElement("small");
-    kategori.textContent = "BERITA SEKOLAH";
+  data[category].unshift(item);
 
+  try{
+    saveData();
+    alert("Konten tersimpan di browser ini.");
+  }catch(error){
+    data = loadData();
+    alert("Penyimpanan gagal. Mungkin kapasitas browser penuh.");
+  }
+}
+
+function renderAdminItems(){
+  const target = document.getElementById("adminItems");
+  if(!target) return;
+  target.replaceChildren();
+
+  ["berita","galeri","fasilitas"].forEach(category => {
     const heading = document.createElement("h3");
-    heading.textContent = judul;
+    heading.style.marginTop = "18px";
+    heading.textContent = category.charAt(0).toUpperCase()+category.slice(1);
+    target.appendChild(heading);
 
-    const paragraf = document.createElement("p");
-    paragraf.textContent = isi;
+    data[category].forEach((item,index) => {
+      const row = document.createElement("div");
+      row.style.padding = "12px 0";
+      row.style.borderBottom = "1px solid #ddd";
 
-    beritaBaru.appendChild(kategori);
-    beritaBaru.appendChild(heading);
-    beritaBaru.appendChild(paragraf);
+      const title = document.createElement("strong");
+      title.textContent = item.title;
 
-    document.getElementById("daftarBerita").prepend(beritaBaru);
+      const del = document.createElement("button");
+      del.className = "danger";
+      del.textContent = "Hapus";
+      del.onclick = () => {
+        if(confirm("Hapus konten ini?")){
+          data[category].splice(index,1);
+          saveData();
+        }
+      };
 
-    document.getElementById("judulBerita").value = "";
-    document.getElementById("isiBerita").value = "";
-
-    alert("Berita berhasil ditambahkan di halaman browser ini.");
+      row.append(title, document.createElement("br"), del);
+      target.appendChild(row);
+    });
+  });
 }
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.querySelector('a[href="#admin"]').addEventListener("click", () => {
+  setTimeout(showAdmin, 0);
+});
+
+renderAll();
 </script>
 
 </body>
