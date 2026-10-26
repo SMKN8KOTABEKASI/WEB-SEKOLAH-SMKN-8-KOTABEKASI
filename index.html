@@ -11,260 +11,126 @@
   --navy2: #1b3153;
   --gold: #d7b568;
   --light: #f4f6fa;
-  --white: #ffffff;
   --text: #263247;
   --muted: #68758a;
   --border: #e0e5ed;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--text);
-  background: var(--light);
-  line-height: 1.65;
-}
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--text); background: var(--light); line-height: 1.65; }
 button, input, textarea, select { font: inherit; }
 button { cursor: pointer; }
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--navy);
-  color: white;
-  border-bottom: 3px solid var(--gold);
-}
-.header-inner {
-  max-width: 1200px;
-  margin: auto;
-  padding: 13px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-}
-.brand-logo {
-  width: 45px;
-  height: 45px;
-  display: grid;
-  place-items: center;
-  border: 2px solid var(--gold);
-  color: var(--gold);
-  font-weight: 800;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
+header { position: sticky; top: 0; z-index: 100; background: var(--navy); color: white; border-bottom: 3px solid var(--gold); }
+.header-inner { max-width: 1200px; margin: auto; padding: 13px 20px; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+.brand { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.brand-logo { width: 45px; height: 45px; display: grid; place-items: center; border: 2px solid var(--gold); color: var(--gold); font-weight: 800; border-radius: 8px; flex-shrink: 0; }
 .brand h1 { font-size: 16px; line-height: 1.3; margin: 0; }
 .brand p { margin: 3px 0 0; font-size: 11px; color: #d5ddeb; }
-.menu-button {
-  background: transparent;
-  color: white;
-  border: 1px solid #53617a;
-  border-radius: 8px;
-  font-size: 25px;
-  width: 45px;
-  height: 43px;
-}
+.menu-button { background: transparent; color: white; border: 1px solid #53617a; border-radius: 8px; font-size: 25px; width: 45px; height: 43px; }
 .menu-button:hover { background: var(--navy2); }
-.menu-panel {
-  display: none;
-  background: #142641;
-  border-top: 1px solid #36445c;
-  padding: 12px 20px 18px;
-}
+
+/* ===== MENU: setiap item dikotakin ===== */
+.menu-panel { display: none; background: #142641; border-top: 1px solid #36445c; padding: 14px 20px 18px; max-height: calc(100vh - 80px); overflow-y: auto; }
 .menu-panel.show { display: block; }
-.menu-inner { max-width: 1160px; margin: auto; }
+.menu-inner { max-width: 1160px; margin: auto; display: grid; gap: 9px; }
 .menu-link, .submenu-toggle {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 10px 13px;
-  border: 0;
-  background: transparent;
-  color: white;
-  border-radius: 6px;
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; text-align: left; padding: 12px 15px;
+  background: linear-gradient(135deg, #1d3558, #172b49);
+  color: white; border: 1px solid #3b5176; border-left: 4px solid var(--gold);
+  border-radius: 10px; font-weight: bold; font-size: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.18); transition: .15s;
 }
-.menu-link:hover, .submenu-toggle:hover { background: #263c5c; }
-.submenu { display: none; padding-left: 15px; }
-.submenu.show { display: block; }
-.submenu .menu-link { color: #e2e9f4; font-size: 14px; }
-.hero {
-  background: linear-gradient(120deg, #101f38, #213d62);
-  color: white;
-  padding: 65px 20px;
-}
+.menu-link:hover, .submenu-toggle:hover, .submenu-toggle.open { background: #29446c; border-color: var(--gold); transform: translateX(2px); }
+.submenu-toggle .arrow { color: var(--gold); transition: transform .2s; }
+.submenu-toggle.open .arrow { transform: rotate(180deg); }
+.submenu { display: none; gap: 8px; padding: 2px 0 4px 14px; }
+.submenu.show { display: grid; }
+.submenu .menu-link, .submenu .submenu-toggle { font-size: 14px; font-weight: normal; background: #20375a; border-left-width: 3px; padding: 10px 13px; }
+.submenu .submenu .menu-link { background: #1a2e4d; font-size: 13px; }
+
+.hero { background: linear-gradient(120deg, #101f38, #213d62); color: white; padding: 65px 20px; }
 .hero-inner { max-width: 1100px; margin: auto; }
-.hero .eyebrow {
-  color: var(--gold);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
+.hero .eyebrow { color: var(--gold); font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
 .hero h2 { font-size: clamp(30px, 5vw, 48px); line-height: 1.2; margin: 12px 0; }
 .hero p { max-width: 650px; color: #e1e7f0; }
 .container { max-width: 1100px; margin: auto; padding: 28px 20px 45px; }
 .section { margin-bottom: 28px; }
-.section-heading {
-  border-left: 4px solid var(--gold);
-  padding-left: 14px;
-  margin: 0 0 18px;
-}
+.section-heading { border-left: 4px solid var(--gold); padding-left: 14px; margin: 0 0 18px; }
 .section-heading h2 { color: var(--navy); margin: 0; font-size: 24px; }
 .section-heading p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
-.card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 22px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 16px rgba(16,31,56,.035);
-}
+.card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(16,31,56,.035); }
 .card h3 { color: var(--navy); margin-top: 0; }
-.visi-label {
-  color: #8a6825;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+.visi-label { color: #8a6825; font-size: 12px; font-weight: bold; letter-spacing: 1px; }
 .misi-list { padding-left: 22px; }
 .misi-list li { padding: 5px 0; }
-.empty-state {
-  padding: 22px;
-  background: white;
-  border: 1px dashed #bac4d3;
-  border-radius: 10px;
-  color: var(--muted);
-  text-align: center;
-}
-.button {
-  display: inline-block;
-  background: var(--navy);
-  color: white;
-  border: 0;
-  padding: 10px 16px;
-  border-radius: 7px;
-  text-decoration: none;
-  font-weight: bold;
-}
+.empty-state { padding: 22px; background: white; border: 1px dashed #bac4d3; border-radius: 10px; color: var(--muted); text-align: center; margin-bottom: 13px; }
+.button { display: inline-block; background: var(--navy); color: white; border: 0; padding: 10px 16px; border-radius: 7px; text-decoration: none; font-weight: bold; }
 .button:hover { background: var(--navy2); }
 .button.gold { background: #a78034; color: white; }
 .button.secondary { background: #e9edf4; color: var(--navy); }
 .button.danger { background: #a83232; }
 .button.small { padding: 6px 10px; font-size: 13px; }
-.list-item {
-  background: white;
-  border: 1px solid var(--border);
-  padding: 18px;
-  border-radius: 10px;
-  margin-bottom: 13px;
-}
+.list-item { background: white; border: 1px solid var(--border); padding: 18px; border-radius: 10px; margin-bottom: 13px; }
 .list-item h3 { margin: 0 0 5px; color: var(--navy); }
 .list-item time { color: var(--muted); font-size: 12px; }
-.program-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-  gap: 25px;
-  align-items: start;
-}
+.rich { white-space: pre-line; word-break: break-word; }
+.program-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 25px; align-items: start; }
 .program-name { grid-column: 1 / -1; margin: 0; color: var(--navy); font-size: 29px; }
-.program-photo {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 12px;
-  background: #e8edf4;
-  border: 1px solid var(--border);
-}
-.program-description { padding: 5px 0; }
+.program-photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; background: #e8edf4; border: 1px solid var(--border); }
 .program-description h3 { margin-top: 0; color: var(--navy); }
-.photo-placeholder {
-  aspect-ratio: 3 / 4;
-  background: #e8edf4;
-  border: 1px dashed #aab6c8;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  color: #67758a;
-}
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 15px;
-}
+.photo-placeholder { aspect-ratio: 3 / 4; background: #e8edf4; border: 1px dashed #aab6c8; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; color: #67758a; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 15px; }
 .gallery-card { padding: 0; overflow: hidden; }
-.gallery-card img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-  background: #e8edf4;
-}
-.gallery-card h3 { padding: 0 15px; }
-.gallery-card p { padding: 0 15px 12px; font-size: 13px; color: var(--muted); }
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 16px;
-}
-footer {
-  background: var(--navy);
-  color: #e5ebf4;
-  padding: 25px 20px;
-  text-align: center;
-  font-size: 13px;
-}
+.gallery-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #e8edf4; }
+.gallery-card p { padding: 0 15px 12px; font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+.fac-card { cursor: pointer; border-left: 4px solid var(--gold); transition: .15s; text-align: left; width: 100%; }
+.fac-card:hover { transform: translateY(-2px); border-color: var(--navy); }
+.fac-card .fac-icon { font-size: 30px; }
+.fac-card h3 { margin: 6px 0 2px; }
+.fac-card span { color: var(--muted); font-size: 13px; }
+.guru-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 15px; }
+.guru-card { text-align: center; padding: 18px 14px; margin: 0; }
+.guru-card img, .guru-avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); background: #e8edf4; margin: 0 auto 10px; display: block; }
+.guru-avatar { display: grid; place-items: center; font-size: 34px; font-weight: bold; color: var(--navy); }
+.guru-card h3 { margin: 0; font-size: 15px; }
+.guru-card p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+.sambutan { display: grid; grid-template-columns: 220px minmax(0,1fr); gap: 24px; align-items: start; }
+.sambutan img, .sambutan .photo-placeholder { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; }
+.sambutan .ttd { margin-top: 18px; color: var(--navy); font-weight: bold; }
+.sambutan .ttd small { display: block; color: var(--muted); font-weight: normal; }
+.contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+footer { background: var(--navy); color: #e5ebf4; padding: 25px 20px; text-align: center; font-size: 13px; }
 footer strong { color: var(--gold); }
 .form-group { margin-bottom: 15px; }
 .form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
-.form-group input, .form-group textarea, .form-group select {
-  width: 100%;
-  padding: 11px;
-  border: 1px solid #ccd4e0;
-  border-radius: 7px;
-  background: white;
-}
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 11px; border: 1px solid #ccd4e0; border-radius: 7px; background: white; }
 .form-group textarea { min-height: 130px; resize: vertical; }
 .form-note { color: var(--muted); font-size: 13px; }
-.admin-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 12px;
-}
-.admin-tile {
-  text-align: left;
-  background: white;
-  border: 1px solid var(--border);
-  padding: 18px;
-  border-radius: 10px;
-}
+.admin-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+.admin-tile { text-align: left; background: white; border: 1px solid var(--border); padding: 18px; border-radius: 10px; }
 .admin-tile:hover { border-color: var(--gold); }
 .admin-tile strong { display: block; color: var(--navy); font-size: 16px; }
 .admin-tile span { color: var(--muted); font-size: 13px; }
 .admin-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .hidden { display: none !important; }
 .back-button { margin-bottom: 18px; }
+.thumb { width: 90px; height: 68px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border); }
+.row { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
 @media(max-width:700px) {
   .header-inner { padding: 11px 14px; }
   .brand h1 { font-size: 14px; }
   .brand p { font-size: 10px; }
+  .menu-panel { padding: 12px 14px 16px; }
   .hero { padding: 45px 18px; }
   .container { padding: 23px 14px 35px; }
   .card { padding: 17px; }
   .program-layout { grid-template-columns: 1fr; }
   .program-name { grid-column: 1; font-size: 25px; }
-  .program-photo, .photo-placeholder { max-width: 100%; }
   .gallery-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .guru-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .sambutan { grid-template-columns: 1fr; }
+  .sambutan img, .sambutan .photo-placeholder { max-width: 220px; }
   .contact-grid, .admin-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -280,14 +146,14 @@ footer strong { color: var(--gold); }
         <p>Website Informasi Sekolah</p>
       </div>
     </div>
-    <button class="menu-button" onclick="toggleMenu()" aria-label="Buka menu">☰</button>
+    <button class="menu-button" onclick="toggleMenu()" aria-label="Buka menu">&#9776;</button>
   </div>
   <nav class="menu-panel" id="menuPanel">
     <div class="menu-inner">
       <button class="menu-link" onclick="goHome()">Beranda</button>
       <button class="menu-link" onclick="openPage('spmb')">SPMB 2026</button>
 
-      <button class="submenu-toggle" onclick="toggleSub('infoSub')">Informasi Sekolah ▾</button>
+      <button class="submenu-toggle" onclick="toggleSub('infoSub', this)">Informasi Sekolah <span class="arrow">&#9662;</span></button>
       <div class="submenu" id="infoSub">
         <button class="menu-link" onclick="openPage('visi')">Visi dan Misi</button>
         <button class="menu-link" onclick="openPage('kegiatan')">Kegiatan Sekolah</button>
@@ -297,7 +163,7 @@ footer strong { color: var(--gold); }
         <button class="menu-link" onclick="openPage('kelulusan')">Informasi Kelulusan TA. 2026/2027</button>
       </div>
 
-      <button class="submenu-toggle" onclick="toggleSub('programSub')">Program Keahlian ▾</button>
+      <button class="submenu-toggle" onclick="toggleSub('programSub', this)">Program Keahlian <span class="arrow">&#9662;</span></button>
       <div class="submenu" id="programSub">
         <button class="menu-link" onclick="openPage('dgm')">DGM</button>
         <button class="menu-link" onclick="openPage('animasi')">Animasi</button>
@@ -306,16 +172,21 @@ footer strong { color: var(--gold); }
         <button class="menu-link" onclick="openPage('tkj')">TKJ</button>
       </div>
 
-      <button class="submenu-toggle" onclick="toggleSub('galeriSub')">Galeri ▾</button>
+      <button class="submenu-toggle" onclick="toggleSub('galeriSub', this)">Galeri <span class="arrow">&#9662;</span></button>
       <div class="submenu" id="galeriSub">
-        <button class="menu-link" onclick="openPage('galeri')">Semua Galeri</button>
-        <button class="menu-link" onclick="openPage('masjid')">Masjid</button>
-        <button class="menu-link" onclick="openPage('perpustakaan')">Perpustakaan</button>
-        <button class="menu-link" onclick="openPage('laboratorium')">Laboratorium</button>
-        <button class="menu-link" onclick="openPage('uks')">UKS</button>
-        <button class="menu-link" onclick="openPage('koperasi')">Koperasi</button>
-        <button class="menu-link" onclick="openPage('kantin')">Kantin</button>
-        <button class="menu-link" onclick="openPage('parkiran')">Parkiran Kendaraan</button>
+        <button class="submenu-toggle" onclick="toggleSub('fasSub', this)">Fasilitas Sekolah <span class="arrow">&#9662;</span></button>
+        <div class="submenu" id="fasSub">
+          <button class="menu-link" onclick="openPage('fasilitas')">Semua Fasilitas</button>
+          <button class="menu-link" onclick="openPage('masjid')">Masjid</button>
+          <button class="menu-link" onclick="openPage('perpustakaan')">Perpustakaan</button>
+          <button class="menu-link" onclick="openPage('laboratorium')">Laboratorium</button>
+          <button class="menu-link" onclick="openPage('uks')">UKS</button>
+          <button class="menu-link" onclick="openPage('koperasi')">Koperasi</button>
+          <button class="menu-link" onclick="openPage('kantin')">Kantin</button>
+          <button class="menu-link" onclick="openPage('parkiran')">Parkiran Kendaraan</button>
+        </div>
+        <button class="menu-link" onclick="openPage('guru')">Nama-Nama Guru</button>
+        <button class="menu-link" onclick="openPage('sambutan')">Sambutan Kepala Sekolah</button>
       </div>
       <button class="menu-link" onclick="openAdmin()">Admin</button>
     </div>
@@ -325,7 +196,7 @@ footer strong { color: var(--gold); }
 <main id="publicHome">
   <section class="hero">
     <div class="hero-inner">
-      <div class="eyebrow">Pendidikan • Karakter • Masa Depan</div>
+      <div class="eyebrow">Pendidikan &bull; Karakter &bull; Masa Depan</div>
       <h2>Selamat Datang di<br>SMK Negeri 8 Kota Bekasi</h2>
       <p>Membangun generasi yang berkarakter, kreatif, bernalar kritis, kolaboratif, dan inovatif untuk menghadapi masa depan.</p>
       <button class="button gold" onclick="openPage('spmb')">Informasi SPMB 2026</button>
@@ -338,9 +209,9 @@ footer strong { color: var(--gold); }
         <h2>Visi dan Misi</h2>
         <p>Arah dan tujuan pendidikan sekolah</p>
       </div>
-      <div class="card">
+      <div class="card" id="visiCard">
         <span class="visi-label">VISI SEKOLAH</span>
-        <h3>Mewujudkan Tamatan TERKINI “Berkarakter, Kreatif, Nalar Kritis, Kolaboratif dan Inovatif”</h3>
+        <h3>Mewujudkan Tamatan TERKINI &ldquo;Berkarakter, Kreatif, Nalar Kritis, Kolaboratif dan Inovatif&rdquo;</h3>
         <h3>Misi Sekolah</h3>
         <ol class="misi-list">
           <li>Menyelenggarakan pendidikan mental dan spiritual melalui nilai religius, budi pekerti, toleransi, gotong royong, dan pembentukan karakter pelajar.</li>
@@ -349,7 +220,7 @@ footer strong { color: var(--gold); }
           <li>Mengintegrasikan delapan Standar Nasional Pendidikan dengan Pendidikan Lingkungan Hidup dalam pengelolaan sekolah secara berkesinambungan.</li>
           <li>Memadukan Manajemen Berbasis Sekolah dengan Teknologi Informasi dan Komunikasi untuk mendukung implementasi Kurikulum Merdeka.</li>
         </ol>
-        <button class="button secondary" onclick="openPage('visi')">Baca Selengkapnya</button>
+        <button class="button secondary" id="visiMore" onclick="openPage('visi')">Baca Selengkapnya</button>
       </div>
     </section>
 
@@ -392,14 +263,14 @@ footer strong { color: var(--gold); }
 
 <main id="pageView" class="hidden">
   <div class="container">
-    <button class="button secondary back-button" onclick="goHome()">← Kembali ke Beranda</button>
+    <button class="button secondary back-button" onclick="goHome()">&larr; Kembali ke Beranda</button>
     <div id="pageContent"></div>
   </div>
 </main>
 
 <main id="adminLogin" class="hidden">
   <div class="container">
-    <button class="button secondary back-button" onclick="goHome()">← Kembali ke Beranda</button>
+    <button class="button secondary back-button" onclick="goHome()">&larr; Kembali ke Beranda</button>
     <div class="card" style="max-width:500px;margin:20px auto">
       <div class="section-heading">
         <h2>Login Admin</h2>
@@ -416,7 +287,6 @@ footer strong { color: var(--gold); }
         </div>
         <button class="button" type="submit">Masuk ke Admin</button>
         <p id="loginMessage" class="form-note"></p>
-        <p class="form-note">Demo awal: pengguna <b>admin</b>, kata sandi <b>smkn8demo</b>. Ganti sistem ini sebelum website digunakan secara resmi.</p>
       </form>
     </div>
   </div>
@@ -430,17 +300,19 @@ footer strong { color: var(--gold); }
     </div>
     <div class="card">
       <h3>Selamat datang, Admin!</h3>
-      <p>Pilih bagian yang ingin kamu kelola. Informasi yang masih kosong bisa ditambahkan dari sini.</p>
+      <p>Pilih bagian yang ingin kamu kelola.</p>
       <div class="admin-grid">
-        <button class="admin-tile" onclick="openEditor('berita')"><strong>📰 Kelola Berita</strong><span>Tambah, ubah, dan hapus berita sekolah.</span></button>
-        <button class="admin-tile" onclick="openEditor('kelulusan')"><strong>🎓 Kelola Kelulusan</strong><span>Kelola informasi kelulusan.</span></button>
-        <button class="admin-tile" onclick="openEditor('kegiatan')"><strong>📅 Kelola Kegiatan</strong><span>Informasi kegiatan sekolah.</span></button>
-        <button class="admin-tile" onclick="openEditor('lowongan')"><strong>💼 Kelola Lowongan</strong><span>Informasi lowongan pekerjaan.</span></button>
-        <button class="admin-tile" onclick="openEditor('spmb')"><strong>📝 Kelola SPMB</strong><span>Informasi penerimaan murid baru.</span></button>
-        <button class="admin-tile" onclick="openEditor('dunia')"><strong>🏫 Kelola Dunia SMK</strong><span>Informasi seputar dunia SMK.</span></button>
-        <button class="admin-tile" onclick="openEditor('foto')"><strong>📷 Kelola Foto Jurusan</strong><span>Unggah foto untuk setiap jurusan.</span></button>
-        <button class="admin-tile" onclick="openEditor('galeri')"><strong>🖼️ Kelola Galeri</strong><span>Kelola foto fasilitas sekolah.</span></button>
-        <button class="admin-tile" onclick="openEditor('kontak')"><strong>☎️ Kelola Kontak Sekolah</strong><span>Ubah alamat dan email sekolah.</span></button>
+        <button class="admin-tile" onclick="openEditor('berita')"><strong>&#128240; Kelola Berita</strong><span>Tambah, ubah, dan hapus berita sekolah.</span></button>
+        <button class="admin-tile" onclick="openEditor('kelulusan')"><strong>&#127891; Kelola Kelulusan</strong><span>Kelola informasi kelulusan.</span></button>
+        <button class="admin-tile" onclick="openEditor('kegiatan')"><strong>&#128197; Kelola Kegiatan</strong><span>Informasi kegiatan sekolah.</span></button>
+        <button class="admin-tile" onclick="openEditor('lowongan')"><strong>&#128188; Kelola Lowongan</strong><span>Informasi lowongan pekerjaan.</span></button>
+        <button class="admin-tile" onclick="openEditor('spmb')"><strong>&#128221; Kelola SPMB</strong><span>Informasi penerimaan murid baru.</span></button>
+        <button class="admin-tile" onclick="openEditor('dunia')"><strong>&#127979; Kelola Dunia SMK</strong><span>Informasi seputar dunia SMK.</span></button>
+        <button class="admin-tile" onclick="openEditor('foto')"><strong>&#128247; Kelola Foto Jurusan</strong><span>Unggah foto untuk setiap jurusan.</span></button>
+        <button class="admin-tile" onclick="openEditor('galeri')"><strong>&#128444;&#65039; Kelola Fasilitas Sekolah</strong><span>Kelola foto fasilitas sekolah.</span></button>
+        <button class="admin-tile" onclick="openEditor('guru')"><strong>&#128105;&#8205;&#127979; Kelola Guru</strong><span>Tambah, ubah, hapus nama guru.</span></button>
+        <button class="admin-tile" onclick="openEditor('sambutan')"><strong>&#127908; Sambutan Kepala Sekolah</strong><span>Isi sambutan dan foto kepala sekolah.</span></button>
+        <button class="admin-tile" onclick="openEditor('kontak')"><strong>&#9742;&#65039; Kelola Kontak Sekolah</strong><span>Ubah alamat dan email sekolah.</span></button>
       </div>
       <div class="admin-actions">
         <button class="button secondary" onclick="goHome()">Lihat Website</button>
@@ -454,409 +326,15 @@ footer strong { color: var(--gold); }
 <footer>
   <strong>SMK NEGERI 8 KOTA BEKASI</strong><br>
   Website Informasi Sekolah<br>
-  <span>© <span id="tahun"></span> SMK Negeri 8 Kota Bekasi</span>
+  <span>&copy; <span id="tahun"></span> SMK Negeri 8 Kota Bekasi</span>
 </footer>
 
 <script>
-const KEY = "smkn8_demo_v4";
+const KEY = "smkn8_demo_v5";
+const ADMIN_USER = "admin";
+const ADMIN_PASS = "smkn8demo"; // GANTI sebelum dipakai resmi
 
 const programInfo = {
-  dgm: {
-    title: "DGM",
-    description: "Mempelajari gambar teknik, perancangan komponen, dan gambar rancangan mesin."
-  },
-  animasi: {
-    title: "Animasi",
-    description: "Mempelajari pembuatan animasi, pengembangan karakter, gerak, dan konten visual digital."
-  },
-  desain: {
-    title: "Desain Grafika",
-    description: "Mempelajari desain visual, tata letak, pengolahan gambar, dan produksi grafika."
-  },
-  akl: {
-    title: "Akuntansi & Keuangan Lembaga",
-    description: "Mempelajari pencatatan transaksi, laporan keuangan, dan administrasi keuangan."
-  },
-  tkj: {
-    title: "Teknik Komputer dan Jaringan (TKJ)",
-    description: "Mempelajari komputer, instalasi sistem, jaringan, server, dan pemecahan masalah teknis."
-  }
-};
-
-const galleryNames = {
-  masjid: "Masjid",
-  perpustakaan: "Perpustakaan",
-  laboratorium: "Laboratorium",
-  uks: "UKS",
-  koperasi: "Koperasi",
-  kantin: "Kantin",
-  parkiran: "Parkiran Kendaraan"
-};
-
-const sectionNames = {
-  berita: "Berita Sekolah",
-  kelulusan: "Informasi Kelulusan TA. 2026/2027",
-  kegiatan: "Kegiatan Sekolah",
-  lowongan: "Lowongan Pekerjaan",
-  spmb: "SPMB 2026",
-  dunia: "Dunia SMK"
-};
-
-function emptyData() {
-  return {
-    berita: [],
-    kelulusan: [],
-    kegiatan: [],
-    lowongan: [],
-    spmb: [],
-    dunia: [],
-    photos: {},
-    gallery: {},
-    alamat: "",
-    email: ""
-  };
-}
-
-function loadData() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(KEY));
-    return saved ? {...emptyData(), ...saved} : emptyData();
-  } catch (e) {
-    return emptyData();
-  }
-}
-
-let data = loadData();
-let editorType = "";
-let isAdmin = false;
-
-function saveData() {
-  try {
-    localStorage.setItem(KEY, JSON.stringify(data));
-    renderHome();
-    return true;
-  } catch (e) {
-    alert("Penyimpanan gagal. Mungkin ruang penyimpanan browser penuh.");
-    return false;
-  }
-}
-
-function toggleMenu() {
-  document.getElementById("menuPanel").classList.toggle("show");
-}
-
-function toggleSub(id) {
-  document.getElementById(id).classList.toggle("show");
-}
-
-function hideAll() {
-  ["publicHome", "pageView", "adminLogin", "adminHome"].forEach(id => {
-    document.getElementById(id).classList.add("hidden");
-  });
-}
-
-function goHome() {
-  hideAll();
-  document.getElementById("publicHome").classList.remove("hidden");
-  document.getElementById("menuPanel").classList.remove("show");
-  renderHome();
-  window.scrollTo(0, 0);
-}
-
-function openAdmin() {
-  hideAll();
-  document.getElementById("menuPanel").classList.remove("show");
-  if (isAdmin) {
-    document.getElementById("adminHome").classList.remove("hidden");
-  } else {
-    document.getElementById("adminLogin").classList.remove("hidden");
-    document.getElementById("loginMessage").textContent = "";
-  }
-  window.scrollTo(0, 0);
-}
-
-function login(event) {
-  event.preventDefault();
-  const user = document.getElementById("adminUsername").value.trim();
-  const pass = document.getElementById("adminPassword").value;
-  if (user === "admin" && pass === "smkn8demo") {
-    isAdmin = true;
-    hideAll();
-    document.getElementById("adminHome").classList.remove("hidden");
-    document.getElementById("adminPassword").value = "";
-    window.scrollTo(0, 0);
-  } else {
-    document.getElementById("loginMessage").textContent = "Nama pengguna atau kata sandi salah.";
-  }
-}
-
-function logout() {
-  isAdmin = false;
-  document.getElementById("adminEditorArea").innerHTML = "";
-  goHome();
-}
-
-function safe(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
-  })[char]);
-}
-
-function renderItems(type, limit = 100) {
-  const items = data[type] || [];
-  if (!items.length) {
-    return `<div class="empty-state">Belum ada informasi yang ditambahkan. Silakan cek kembali nanti.</div>`;
-  }
-  return items.slice().reverse().slice(0, limit).map(item => `
-    <article class="list-item">
-      <h3>${safe(item.title)}</h3>
-      ${item.date ? `<time>${safe(item.date)}</time>` : ""}
-      <p>${safe(item.body).replace(/\n/g, "<br>")}</p>
-    </article>
-  `).join("");
-}
-
-function renderHome() {
-  document.getElementById("homeBerita").innerHTML = renderItems("berita", 3);
-  document.getElementById("homeKelulusan").innerHTML = renderItems("kelulusan", 3);
-
-  document.getElementById("alamatSekolah").textContent =
-    data.alamat || "Alamat resmi sekolah belum dimasukkan.";
-  document.getElementById("emailSekolah").textContent =
-    data.email || "Email resmi sekolah belum dimasukkan.";
-
-  const emailButton = document.getElementById("tombolEmail");
-  if (data.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-    emailButton.href = "mailto:" + data.email;
-    emailButton.classList.remove("hidden");
-  } else {
-    emailButton.href = "#";
-    emailButton.classList.add("hidden");
-  }
-}
-
-function openPage(id) {
-  hideAll();
-  document.getElementById("menuPanel").classList.remove("show");
-  document.getElementById("pageView").classList.remove("hidden");
-
-  const content = document.getElementById("pageContent");
-  let html = "";
-
-  if (programInfo[id]) {
-    const p = programInfo[id];
-    const photo = data.photos[id];
-    html = `
-      <section class="card">
-        <div class="program-layout">
-          <h1 class="program-name">${safe(p.title)}</h1>
-          <div>
-            ${photo
-              ? `<img class="program-photo" src="${photo}" alt="Foto ${safe(p.title)}">`
-              : `<div class="photo-placeholder">Foto jurusan ${safe(p.title)}<br><br>Belum ada foto yang diunggah.</div>`
-            }
-          </div>
-          <div class="program-description">
-            <h3>Tentang Program Keahlian</h3>
-            <p>${safe(p.description)}</p>
-            <p>Program keahlian ini mendukung peserta didik untuk mengembangkan pengetahuan, keterampilan, dan kesiapan memasuki dunia kerja.</p>
-          </div>
-        </div>
-      </section>`;
-  } else if (id === "visi") {
-    html = `
-      <div class="section-heading"><h2>Visi dan Misi</h2></div>
-      <section class="card">
-        <span class="visi-label">VISI SEKOLAH</span>
-        <h2>Mewujudkan Tamatan TERKINI “Berkarakter, Kreatif, Nalar Kritis, Kolaboratif dan Inovatif”</h2>
-        <h3>Penjelasan Visi</h3>
-        <ol class="misi-list">
-          <li><b>Berkarakter:</b> Memiliki karakter berintegritas tinggi, bersahaja, bermartabat, religius, disiplin, jujur, menguasai IPTEK dan IMTAQ, serta profesional.</li>
-          <li><b>Kreatif:</b> Mampu memodifikasi dan menghasilkan sesuatu yang inovatif atau orisinal, bermakna, bermanfaat, dan berdampak pada kompetensi.</li>
-          <li><b>Nalar Kritis:</b> Mampu memperoleh dan memproses informasi, menganalisis serta mengevaluasi penalaran, merefleksikan pemikiran, dan mengambil keputusan.</li>
-          <li><b>Kolaboratif:</b> Mampu mengomunikasikan perbedaan untuk mencari solusi dan berkolaborasi dengan dunia kerja serta dunia industri dalam pembelajaran dan pelatihan.</li>
-          <li><b>Inovatif:</b> Mampu mendayagunakan pikiran dan sumber daya sekitar untuk menghasilkan karya inovatif atau orisinal yang bermanfaat.</li>
-        </ol>
-        <h3>Misi Sekolah</h3>
-        <ol class="misi-list">
-          <li>Menyelenggarakan pendidikan mental dan spiritual melalui nilai religius, budi pekerti, toleransi, gotong royong, dan pembentukan karakter pelajar.</li>
-          <li>Mengembangkan potensi dan kreativitas peserta didik agar unggul di tingkat nasional, regional, dan internasional melalui kolaborasi, inovasi, pembelajaran yang aktif, kreatif, inovatif, efisien, interaktif, inspiratif, memotivasi, menantang, menyenangkan, serta kolaborasi dengan IDUKA.</li>
-          <li>Menyelenggarakan pendidikan berbasis Teknik Informatika dan Kewirausahaan untuk menumbuhkan jiwa wirausaha yang kreatif dan inovatif.</li>
-          <li>Mengintegrasikan delapan Standar Nasional Pendidikan dengan Pendidikan Lingkungan Hidup dalam organisasi sekolah secara berkesinambungan.</li>
-          <li>Memadukan Manajemen Berbasis Sekolah dengan Teknologi Informasi dan Komunikasi untuk implementasi Kurikulum Merdeka.</li>
-        </ol>
-      </section>`;
-  } else if (id === "galeri") {
-    html = `<div class="section-heading"><h2>Galeri Fasilitas Sekolah</h2><p>Dokumentasi fasilitas SMK Negeri 8 Kota Bekasi</p></div><div class="gallery-grid">`;
-    Object.entries(galleryNames).forEach(([key, name]) => {
-      const photo = data.gallery[key];
-      html += `<article class="card gallery-card">
-        ${photo ? `<img src="${photo}" alt="${safe(name)}">` : `<div class="photo-placeholder" style="aspect-ratio:4/3">Foto ${safe(name)}<br>Belum tersedia</div>`}
-        <h3>${safe(name)}</h3>
-      </article>`;
-    });
-    html += `</div>`;
-  } else if (galleryNames[id]) {
-    const photo = data.gallery[id];
-    html = `<div class="section-heading"><h2>${safe(galleryNames[id])}</h2><p>Galeri fasilitas sekolah</p></div>
-      <div class="card">
-        ${photo ? `<img src="${photo}" alt="${safe(galleryNames[id])}" style="width:100%;max-width:650px;border-radius:10px">` : `<div class="photo-placeholder" style="max-width:420px;aspect-ratio:4/3">Foto ${safe(galleryNames[id])}<br>Belum tersedia</div>`}
-      </div>`;
-  } else if (sectionNames[id]) {
-    html = `<div class="section-heading"><h2>${safe(sectionNames[id])}</h2><p>Informasi resmi sekolah</p></div>`;
-    if (id === "spmb") {
-      html += `<div class="card"><h3>Penerimaan Murid Baru 2026</h3><p>Informasi persyaratan, jadwal, dan tata cara pendaftaran akan diumumkan melalui kanal resmi sekolah.</p><p>Silakan periksa pengumuman terbaru dari pihak sekolah untuk memastikan informasi yang benar.</p></div>`;
-    }
-    html += renderItems(id);
-  } else {
-    html = `<div class="empty-state">Halaman tidak ditemukan.</div>`;
-  }
-
-  content.innerHTML = html;
-  window.scrollTo(0, 0);
-}
-
-function openEditor(type) {
-  if (!isAdmin) return openAdmin();
-  editorType = type;
-  const area = document.getElementById("adminEditorArea");
-  let html = `<section class="card" id="editorCard">
-    <div class="section-heading"><h2>${editorTitle(type)}</h2><p>Isi formulir di bawah untuk memperbarui informasi.</p></div>`;
-
-  if (["berita", "kelulusan", "kegiatan", "lowongan", "spmb", "dunia"].includes(type)) {
-    html += `
-      <form onsubmit="saveItem(event)">
-        <div class="form-group"><label for="itemTitle">Judul</label><input id="itemTitle" required placeholder="Masukkan judul informasi"></div>
-        <div class="form-group"><label for="itemDate">Tanggal (opsional)</label><input id="itemDate" type="date"></div>
-        <div class="form-group"><label for="itemBody">Isi informasi</label><textarea id="itemBody" required placeholder="Tulis informasi di sini"></textarea></div>
-        <button class="button" type="submit">Simpan Informasi</button>
-      </form>
-      <hr style="border:0;border-top:1px solid var(--border);margin:25px 0">
-      <h3>Informasi yang Sudah Ditambahkan</h3>
-      ${adminList(type)}`;
-  } else if (type === "foto") {
-    html += `<p class="form-note">Pilih jurusan dan unggah foto dari perangkat kamu. Gunakan foto yang sesuai dengan jurusan tersebut.</p>
-      <div class="form-group"><label for="photoProgram">Pilih Jurusan</label><select id="photoProgram">${Object.entries(programInfo).map(([key,p])=>`<option value="${key}">${safe(p.title)}</option>`).join("")}</select></div>
-      <div class="form-group"><label for="programFile">Pilih Foto</label><input type="file" id="programFile" accept="image/*"></div>
-      <button class="button" onclick="uploadPhoto()">Simpan Foto Jurusan</button>`;
-  } else if (type === "galeri") {
-    html += `<div class="form-group"><label for="galleryPlace">Pilih Fasilitas</label><select id="galleryPlace">${Object.entries(galleryNames).map(([key,name])=>`<option value="${key}">${safe(name)}</option>`).join("")}</select></div>
-      <div class="form-group"><label for="galleryFile">Pilih Foto</label><input type="file" id="galleryFile" accept="image/*"></div>
-      <button class="button" onclick="uploadGallery()">Simpan Foto Galeri</button>`;
-  } else if (type === "kontak") {
-    html += `<form onsubmit="saveContact(event)">
-      <div class="form-group"><label for="contactAddress">Alamat Resmi Sekolah</label><textarea id="contactAddress" placeholder="Masukkan alamat lengkap sekolah">${safe(data.alamat)}</textarea></div>
-      <div class="form-group"><label for="contactEmail">Email Resmi Sekolah</label><input id="contactEmail" type="email" placeholder="nama@sekolah.sch.id" value="${safe(data.email)}"></div>
-      <button class="button" type="submit">Simpan Kontak</button>
-    </form>`;
-  }
-
-  html += `<div class="admin-actions"><button class="button secondary" onclick="document.getElementById('adminEditorArea').innerHTML=''">Tutup Pengelolaan</button></div></section>`;
-  area.innerHTML = html;
-  area.scrollIntoView({behavior:"smooth", block:"start"});
-}
-
-function editorTitle(type) {
-  const names = {
-    berita:"Kelola Berita Sekolah",
-    kelulusan:"Kelola Informasi Kelulusan",
-    kegiatan:"Kelola Kegiatan Sekolah",
-    lowongan:"Kelola Lowongan Pekerjaan",
-    spmb:"Kelola Informasi SPMB 2026",
-    dunia:"Kelola Informasi Dunia SMK",
-    foto:"Kelola Foto Jurusan",
-    galeri:"Kelola Galeri Fasilitas",
-    kontak:"Kelola Kontak Sekolah"
-  };
-  return names[type] || "Pengelolaan";
-}
-
-function adminList(type) {
-  const items = data[type] || [];
-  if (!items.length) return `<p class="form-note">Belum ada data.</p>`;
-  return items.slice().reverse().map(item => {
-    const index = data[type].findIndex(x => x.id === item.id);
-    return `<div class="list-item">
-      <h3>${safe(item.title)}</h3>
-      <p>${safe(item.body)}</p>
-      <button class="button danger small" onclick="deleteItem('${type}','${item.id}')">Hapus</button>
-    </div>`;
-  }).join("");
-}
-
-function saveItem(event) {
-  event.preventDefault();
-  const title = document.getElementById("itemTitle").value.trim();
-  const date = document.getElementById("itemDate").value;
-  const body = document.getElementById("itemBody").value.trim();
-  if (!title || !body) return alert("Judul dan isi informasi harus diisi.");
-  data[editorType].push({
-    id: Date.now().toString(),
-    title,
-    date,
-    body
-  });
-  if (saveData()) {
-    alert("Informasi berhasil disimpan di browser ini.");
-    openEditor(editorType);
-  }
-}
-
-function deleteItem(type, id) {
-  if (!confirm("Yakin ingin menghapus informasi ini?")) return;
-  data[type] = data[type].filter(item => item.id !== id);
-  if (saveData()) openEditor(type);
-}
-
-function saveContact(event) {
-  event.preventDefault();
-  data.alamat = document.getElementById("contactAddress").value.trim();
-  data.email = document.getElementById("contactEmail").value.trim();
-  if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-    return alert("Format email belum benar.");
-  }
-  if (saveData()) {
-    alert("Kontak berhasil disimpan di browser ini.");
-    openEditor("kontak");
-  }
-}
-
-function readImage(file, callback) {
-  if (!file) return alert("Silakan pilih foto terlebih dahulu.");
-  if (!file.type.startsWith("image/")) return alert("File harus berupa gambar.");
-  if (file.size > 1500000) return alert("Ukuran gambar maksimal 1,5 MB. Kompres foto terlebih dahulu agar lebih kecil.");
-  const reader = new FileReader();
-  reader.onload = () => callback(reader.result);
-  reader.onerror = () => alert("Foto tidak dapat dibaca.");
-  reader.readAsDataURL(file);
-}
-
-function uploadPhoto() {
-  const key = document.getElementById("photoProgram").value;
-  const file = document.getElementById("programFile").files[0];
-  readImage(file, result => {
-    data.photos[key] = result;
-    if (saveData()) {
-      alert("Foto jurusan disimpan di browser ini.");
-      openEditor("foto");
-    }
-  });
-}
-
-function uploadGallery() {
-  const key = document.getElementById("galleryPlace").value;
-  const file = document.getElementById("galleryFile").files[0];
-  readImage(file, result => {
-    data.gallery[key] = result;
-    if (saveData()) {
-      alert("Foto galeri disimpan di browser ini.");
-      openEditor("galeri");
-    }
-  });
-}
-
-document.getElementById("tahun").textContent = new Date().getFullYear();
-renderHome();
-</script>
-</body>
-</html>
+  dgm: { title: "DGM", description: "Mempelajari gambar teknik, perancangan komponen, dan gambar rancangan mesin." },
+  animasi: { title: "Animasi", description: "Mempelajari pembuatan animasi, pengembangan karakter, gerak, dan konten visual digital." },
+  desain: { title: "Desain Grafika", description: "Me
